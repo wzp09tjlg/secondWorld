@@ -1,1 +1,4 @@
 include ':app', ':hslibrary', ':mylibrary'
+/**
+ *  已经将modual添加到项目中了 在项目组中 就可以调用modual中定义的方法
+ * */
