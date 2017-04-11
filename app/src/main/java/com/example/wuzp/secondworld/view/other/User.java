@@ -1,5 +1,7 @@
 package com.example.wuzp.secondworld.view.other;
 
+import com.apkfuns.logutils.LogUtils;
+
 /**
  * Created by wuzp on 2017/4/10.
  */
@@ -13,5 +15,9 @@ public class User {
        this.firstName = firstName;
         this.lastName = lastName;
         this.isvisit = isvisit;
+    }
+
+    public void show(){
+        LogUtils.e("show:" +"{firstName:" + firstName + ";lastName:" + lastName + ";isvisit:" + isvisit + "}");
     }
 }
