@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="user"
+            type="com.example.wuzp.secondworld.view.databinding.User"/>
+        <variable
+            name="click"
+            type="com.example.wuzp.secondworld.view.databinding.HandleClick"/>
+    </data>
+        
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName}"/>
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="1233"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_change"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="change" />
+
+        <Button
+            android:id="@+id/btn_alter"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="alter" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+
+    </LinearLayout>
+</layout>

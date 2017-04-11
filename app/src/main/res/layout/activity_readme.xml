@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="readme"/>
+      </RelativeLayout>
+      <!--  <data >
+            &lt;!&ndash; 在定义Variable 在 data 节点中声明一个 User 类型的变量 user&ndash;&gt;
+            <import type="com.example.wuzp.secondworld.view.databinding.User"/>
+            <import type="com.example.wuzp.secondworld.view.other.User" alias="useless"/>
+            <variable name="userr" type="useless"/>
+            <variable name="user" type="User"/>
+            &lt;!&ndash;<import type="com.example.administrator.databinding_demo.MainActivity"/>
+            <variable name="hand" type="com.example.administrator.databinding_demo.hand"/>
+            <import type="android.view.View"/>
+            <variable name="string" type="String"/>
+            <import type="com.example.administrator.databinding_demo.MyStaticClass"/>&ndash;&gt;
+
+            &lt;!&ndash;引入集合&ndash;&gt;
+            &lt;!&ndash; 不懂第一个什么类没写&ndash;&gt;
+            &lt;!&ndash;<import type="android.util.SparseArray"/>
+            <import type="java.util.Map"/>
+            <import type="java.util.List"/>
+            <variable name="list" type="List<String>"/>
+            &lt;!&ndash;<variable name="sparse" type="SparseArray<String>"/>&ndash;&gt;
+            <variable name="map" type="Map&lt;String, String&gt;"/>
+            <variable name="index" type="int"/>
+            <variable name="key" type="String"/>&ndash;&gt;
+        </data>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.firstName}"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="@{user.lastName}"
+                android:visibility="@{user.isvisit ? View.VISIBLE : View.GONE}"/>
+
+            &lt;!&ndash;   <TextView
+                   android:clickable="true"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:onClick="@{hand.onClickmore}"
+                   android:text="@{string}"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@{MyStaticClass.showmess(user.lastName)}"/>
+
+               <include layout="@layout/layouttest"
+                   bind:user = "@{user}"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@{list[index]}"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@{map[key]}"/>
+
+               <ImageView
+                   android:background="@{user.isvisit ? @drawable/test : @drawable/ic_launcher}"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>&ndash;&gt;
+        </LinearLayout>-->
+
+</layout>

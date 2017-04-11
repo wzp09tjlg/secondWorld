@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wuzp.secondworld">
+
+    <!--<uses-permission android:name="android.permission.READ_CONTACTS"/>-->
+    <!-- 申请网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 照相机的权限 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 读写权限还是需要的 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 正常运行的测试代码 -->
+    <application
+        android:name=".HApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.dialog.AddAlbumActivity"
+            android:theme="@style/DialogTransparent"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.huasheng.HuashengActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.huasheng.OtherHsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.huasheng.recyclerView.RecyclerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.permission.PerimissionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.wuzp.secondworld.view.databinding.DataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.datalist.DataListActivity"
+            android:screenOrientation="portrait"/>
+        <!-- Ument -->
+        <!-- AppKey 58e4b1ce07fe6565450015d3 -->
+        <!-- Umeng Message Secret  82525af778368e5acb8907328338d74e-->
+        <!-- App Master Secret 1tzf5fcp9puu1p2wz9zqrl2ymb7jkvps-->
+        <!-- 包名  com.example.wuzp.secondworld-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58e4b1ce07fe6565450015d3" />
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="82525af778368e5acb8907328338d74e" />
+    </application>
+</manifest>

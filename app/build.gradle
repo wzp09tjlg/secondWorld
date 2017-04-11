@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.example.wuzp.secondworld"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        //build 的类型 release 和 debug
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        //debug的时候可以向buildConfig中写入自己定义的数据
+        debug{
+            buildConfigField "String","BASE_URL","\"http://www.test.com/\""
+            buildConfigField "int","DATE","20160701"
+        }
+    }
+    //打开DataBinding的开关
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //RecyclerView
+    compile recyclerview
+    // constraint // 约束布局
+    compile constraint
+    // Network Framework
+    compile retrofit
+    compile converter_gson
+    compile retrofit2_rxjava2_adapter
+    compile okhttp_logging_interceptor
+    compile okhttp
+    // Image Loader Framework
+    compile glide
+    compile glide_okhttp3
+    // Reactive Programming Codeing Framework
+    compile rxandroid
+    compile rxjava
+    // Google Support Lib
+    compile rootProject.ext.support_dependencies["v7"]
+    compile rootProject.ext.support_dependencies["v4"]
+    compile rootProject.ext.support_dependencies["design"]
+    compile rootProject.ext.support_dependencies["appcompat_v7"]
+    compile rootProject.ext.support_dependencies["multidex"]
+
+    // Test Framework
+    testCompile junit
+    debugCompile logutils_debug
+    releaseCompile logutils_release
+    testCompile logutils_debug
+    debugCompile leakcanary_debug
+    releaseCompile leakcanary_release
+    testCompile leakcanary_test
+    //kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    //test frameWork
+    testCompile junit
+    debugCompile logutils_debug
+    releaseCompile logutils_release
+    testCompile logutils_debug
+    debugCompile leakcanary_debug
+    releaseCompile leakcanary_release
+    testCompile leakcanary_test
+    //将添加到libs中的jar 添加到项目中, 不过更加便捷的方式是 在一个modual中
+    compile files('libs/open-api-sdk-2.0.jar')
+    compile files('libs/fastjson-1.2.2.jar')
+
+}
+repositories {
+    mavenCentral()
+}

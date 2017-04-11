@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+        <!-- ImageView scaleType的默认值是fit_center -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/top_arrow"
+                android:layout_width="14dp"
+                android:layout_height="8dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="13dp"
+                android:src="@drawable/icon_black_arrow_top" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

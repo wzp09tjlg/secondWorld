@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <!-- 在花生中 因为首页的list中的数据加载之后就不会变化 所以适合采用这种绑定式的框架 -->
+        <variable
+            name="user"
+            type="com.example.wuzp.secondworld.view.databinding.User"/>
+    </data>
+  <RelativeLayout
+     android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <TextView
+          android:id="@+id/text_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:gravity="center"
+          android:textSize="16dp"
+          android:text="@{user.firstName}"
+          android:singleLine="true"/>
+      <TextView
+          android:id="@+id/text_address"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@+id/text_name"
+          android:gravity="center"
+          android:layout_centerInParent="true"
+          android:text="@{user.lastName}"
+          android:textSize="16dp"
+          android:singleLine="true"/>
+  </RelativeLayout>
+</layout>
