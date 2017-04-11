@@ -3,7 +3,6 @@ package com.example.wuzp.secondworld.view.other;
 /**
  * Created by wuzp on 2017/4/10.
  */
-
 public class User {
     public String firstName;
     public String lastName;
@@ -13,5 +12,10 @@ public class User {
        this.firstName = firstName;
         this.lastName = lastName;
         this.isvisit = isvisit;
+    }
+
+    @Override
+    public String toString() {
+        return "{firstName:" + firstName + ";lastName:" + lastName + ";isvisit:" + isvisit +  "}";
     }
 }
