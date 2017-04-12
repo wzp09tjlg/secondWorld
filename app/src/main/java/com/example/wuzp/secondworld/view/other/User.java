@@ -1,6 +1,8 @@
 package com.example.wuzp.secondworld.view.other;
 
 import com.apkfuns.logutils.LogUtils;
+import com.example.hslibrary.ToolUtil;
+import com.example.mylibrary.ToolUtils;
 
 /**
  * Created by wuzp on 2017/4/10.
@@ -19,5 +21,12 @@ public class User {
 
     public void show(){
         LogUtils.e("show:" +"{firstName:" + firstName + ";lastName:" + lastName + ";isvisit:" + isvisit + "}");
+    }
+
+    public void doTestToolUtil(){
+        // 在今年上半年一定要考下深水证吼吼吼...
+        ToolUtil.add(100,200);
+        ToolUtils.add(300,400);
+        ToolUtils.minus(500,600);
     }
 }
