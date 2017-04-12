@@ -1,5 +1,6 @@
 package com.example.wuzp.secondworld.view.other;
 
+import com.apkfuns.logutils.LogUtils;
 import com.example.hslibrary.ToolUtil;
 import com.example.mylibrary.ToolUtils;
 
@@ -17,13 +18,14 @@ public class User {
         this.isvisit = isvisit;
     }
 
-    @Override
-    public String toString() {
-        return "{firstName:" + firstName + ";lastName:" + lastName + ";isvisit:" + isvisit +  "}";
+    public void show(){
+        LogUtils.e("show:" +"{firstName:" + firstName + ";lastName:" + lastName + ";isvisit:" + isvisit + "}");
     }
 
-    public void doTestModualUtil(){
+    public void doTestToolUtil(){
+        // 在今年上半年一定要考下深水证吼吼吼...
         ToolUtil.add(100,200);
-        ToolUtils.minus(300,400);
+        ToolUtils.add(300,400);
+        ToolUtils.minus(500,600);
     }
 }
