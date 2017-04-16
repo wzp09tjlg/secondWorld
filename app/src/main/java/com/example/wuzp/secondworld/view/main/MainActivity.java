@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
-import com.example.wuzp.secondworld.view.datalist.DataListActivity;
 import com.example.wuzp.secondworld.view.dialog.AddAlbumActivity;
+import com.example.wuzp.secondworld.view.huasheng.HuashengActivity;
 import com.example.wuzp.secondworld.view.retrofit.rxjava.RxJavaTest;
 import com.example.wuzp.secondworld.view.retrofit.rxjava2.RxJavaUtil;
 
@@ -72,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         //ActivityUtil.jumpActivity(this, PerimissionActivity.class);
         //ActivityUtil.jumpActivity(this, RecyclerActivity.class);
         //ActivityUtil.jumpActivity(this, DataActivity.class);
-        ActivityUtil.jumpActivity(this, DataListActivity.class);
+        //ActivityUtil.jumpActivity(this, DataListActivity.class);
+        ActivityUtil.jumpActivity(this, HuashengActivity.class);
     }
 
 }

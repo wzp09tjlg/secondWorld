@@ -5,5 +5,5 @@ package com.example.wuzp.secondworld.view.huasheng.jsCallback;
  */
 public interface IJsCallBack {
 
-    void jsClick();
+    void jsClick(String json);
 }

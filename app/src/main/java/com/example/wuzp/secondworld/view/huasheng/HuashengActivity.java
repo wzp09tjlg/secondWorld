@@ -174,8 +174,8 @@ public class HuashengActivity extends BindingActivity<ActivityHuashengBinding,Hu
 
         @JavascriptInterface
         @Override
-        public void jsClick() {
-          LogUtils.e("JsCallBackImpImp jsClick");
+        public void jsClick(String json) {
+          LogUtils.e("JsCallBackImpImp jsClick json:" + json);
         }
     }
 }
