@@ -42,6 +42,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.datalist.DataListActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.diff.DiffActivity"
+            android:screenOrientation="portrait"/>
         <!-- Ument -->
         <!-- AppKey 58e4b1ce07fe6565450015d3 -->
         <!-- Umeng Message Secret  82525af778368e5acb8907328338d74e-->
