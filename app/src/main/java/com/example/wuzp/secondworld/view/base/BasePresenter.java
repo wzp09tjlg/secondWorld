@@ -24,7 +24,7 @@ public class BasePresenter<V> {
     private static final String TAG = BasePresenter.class.getSimpleName();
 
     protected V mvpView;
-    protected ApiStores apiStores;
+    protected ApiStores apiStores = new AppClient().create();
     private CompositeDisposable mCompositeDisposable;
 
     public BasePresenter(V view) {

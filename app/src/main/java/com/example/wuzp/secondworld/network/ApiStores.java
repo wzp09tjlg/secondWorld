@@ -2,6 +2,7 @@ package com.example.wuzp.secondworld.network;
 
 import com.example.wuzp.secondworld.network.parse.HttpBase;
 import com.example.wuzp.secondworld.network.parse.SelectBean;
+import com.example.wuzp.secondworld.network.parse.TopicBean;
 import com.google.gson.JsonElement;
 
 import java.util.Map;
@@ -23,7 +24,7 @@ public interface ApiStores {
     public static final String HS_APP_SECRET = "f7c3a45e816c09e64ed609954b5441ee";
 
     // Host地址
-    public static final String HS_HOST = "https://client-hs.vread.com/";
+    public static final String HS_HOST = "http://client.hs.vread.com/";
     public static final String HS_HOST_KEY = "client-hs.vread.com";
     // 测试服务器地址
     public static String HS_HOST_TEST = "http://221.179.193.164/huasheng/client/";
@@ -37,6 +38,16 @@ public interface ApiStores {
     public static final String HS_RELAY_SOLITAIRE = HS_HOST_TEST + "relay/solitaire.html";
     // 品花生(品专题)
     public static final String HS_PINGHUASHENG = HS_HOST_TEST + "peanut/taste.html";
+
+    //获取运营为
+    //http://client.hs.vread.com/operation/show.json
+    //http://client.hs.vread.com/operation/show.json?position=start_topic
+    /**
+     *  获取运营位 QueryMap 是针对get方法  FieldMap是针对Post方法
+     *  及时ApiStores是空值
+     * */
+    @GET("operation/show.json")
+    Flowable<HttpBase<TopicBean>> getTopicList(@QueryMap Map<String,String> params);
 
     /**
      * 引导页接口-获取首页tab数据
