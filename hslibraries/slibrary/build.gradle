@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // Test Framework
+    testCompile junit
+    debugCompile logutils_debug
+    releaseCompile logutils_release
+    testCompile logutils_debug
+    debugCompile leakcanary_debug
+    releaseCompile leakcanary_release
+    testCompile leakcanary_test
+
+    // Google Support Lib
+    compile rootProject.ext.support_dependencies["v7"]
+    compile rootProject.ext.support_dependencies["v4"]
+    compile rootProject.ext.support_dependencies["design"]
+    compile rootProject.ext.support_dependencies["appcompat_v7"]
+    compile rootProject.ext.support_dependencies["multidex"]
+}

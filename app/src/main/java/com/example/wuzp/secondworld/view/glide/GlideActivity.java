@@ -10,6 +10,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.hlibrary.utils.ToolsUtil;
+import com.example.slibrary.Utils.UUtils;
 import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.databinding.ActivityGlideBinding;
 import com.example.wuzp.secondworld.network.parse.TopicBean;
@@ -89,5 +91,14 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
                 .centerCrop()
                 .crossFade()
                 .into(binding.imgLoading);
+    }
+
+    // this is a util test
+    private void doTest(){
+        ToolsUtil.add(100,200);
+        ToolsUtil.minus(100,200);
+        ToolsUtil.show("this is a test for library");
+
+        UUtils.show("THIS IS A TEST TOO HERE");
     }
 }

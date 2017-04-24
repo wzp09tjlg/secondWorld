@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hslibrary/hslibrary.iml" filepath="$PROJECT_DIR$/hslibrary/hslibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hslibraries/hlibrary/hlibrary.iml" filepath="$PROJECT_DIR$/hslibraries/hlibrary/hlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/secondWorld.iml" filepath="$PROJECT_DIR$/secondWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hslibraries/slibrary/slibrary.iml" filepath="$PROJECT_DIR$/hslibraries/slibrary/slibrary.iml" />
     </modules>
   </component>
 </project>

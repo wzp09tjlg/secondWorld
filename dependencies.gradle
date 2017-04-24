@@ -26,8 +26,6 @@ ext {
     butterknife_compiler = "com.jakewharton:butterknife-compiler:8.4.0"
     guava = "com.google.guava:guava:20.0"
     eventbus = "org.greenrobot:eventbus:3.0.0"
-    h_sdk  = project(':hslibrary')
-    s_sdk  = project(':mylibrary')
     // tool
     calligraphy = "uk.co.chrisjenx:calligraphy:2.2.0"
     swipebackfragment = "me.yokeyword:swipebackfragment:0.2.2"
@@ -47,6 +45,8 @@ ext {
     // origin sdk
     open_sdk     = files('libs/open-api-sdk-2.0.jar')
     fastjson_sdk = files('libs/fastjson-1.2.2.jar')
+    h_sdk = project(':hlibrary');
+    s_sdk = project(':slibrary');
     // kotlin
     kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     kotlin8 = "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}";
