@@ -4,7 +4,7 @@ ext {
     // version
     HsCompileSdkVersion = 25
     HsBuildToolsVersion = "25.0.1"
-    HsMinSdkVersion = 9
+    HsMinSdkVersion = 14
     HsTargetSdkVersion = 21
 
     // test

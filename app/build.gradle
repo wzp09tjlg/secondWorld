@@ -2,28 +2,50 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion HsCompileSdkVersion
+    buildToolsVersion HsBuildToolsVersion
     defaultConfig {
         applicationId "com.example.wuzp.secondworld"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion HsMinSdkVersion
+        targetSdkVersion HsTargetSdkVersion
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('deploy/keystore.jks')
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            v2SigningEnabled false
+        }
+        debug {
+            storeFile file('deploy/keystore.jks')
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
     }
     buildTypes {
         //build 的类型 release 和 debug
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
+            //os库只选择支持arm平台 x86 及其他平台可以忽略
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
         }
 
         //debug的时候可以向buildConfig中写入自己定义的数据
         debug{
             buildConfigField "String","BASE_URL","\"http://www.test.com/\""
             buildConfigField "int","DATE","20160701"
+            signingConfig signingConfigs.debug
         }
     }
     //打开DataBinding的开关
