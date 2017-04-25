@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.hlibrary.utils.ToolsUtil;
 import com.example.slibrary.Utils.UUtils;
+import com.example.wuzp.secondworld.HApplication;
 import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.databinding.ActivityGlideBinding;
 import com.example.wuzp.secondworld.network.parse.TopicBean;
@@ -20,7 +21,8 @@ import com.example.wuzp.secondworld.view.base.BindingActivity;
 /**
  * Created by wuzp on 2017/4/24.
  */
-public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePresenter> implements GlideContract.IView {
+public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePresenter> implements
+        GlideContract.IView {
     private GlideViewWrapper viewWrapper = new GlideViewWrapper();
     private TopicBean bean;
 
@@ -83,6 +85,13 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
                     }
                 })
                 .into(tempimageView);
+
+        String activityPath = "";
+        String applicationPath = "";
+        activityPath = getFilesDir().getPath();
+        applicationPath = HApplication.getContext().getFilesDir().getPath();
+        //通过日志可以看得出 在获取安装包下的地址时  activity 和 application 是一样的。所以在全局的单列中 使用context 一般使用全局的application
+        LogUtils.e("activitypath:" + activityPath + "   applicationPath:" + applicationPath);
     }
 
     private void setImageSource(String url){
