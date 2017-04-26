@@ -1,6 +1,7 @@
 package com.example.wuzp.secondworld.network;
 
 import com.example.wuzp.secondworld.network.parse.HttpBase;
+import com.example.wuzp.secondworld.network.parse.HttpBase_j;
 import com.example.wuzp.secondworld.network.parse.SelectBean;
 import com.example.wuzp.secondworld.network.parse.TopicBean;
 import com.google.gson.JsonElement;
@@ -47,7 +48,7 @@ public interface ApiStores {
      *  及时ApiStores是空值
      * */
     @GET("operation/show.json")
-    Flowable<HttpBase<TopicBean>> getTopicList(@QueryMap Map<String,String> params);
+    Flowable<HttpBase_j<TopicBean>> getTopicList(@QueryMap Map<String,String> params);
 
     /**
      * 引导页接口-获取首页tab数据

@@ -1,7 +1,7 @@
 package com.example.wuzp.secondworld.network;
 
 import com.apkfuns.logutils.LogUtils;
-import com.example.wuzp.secondworld.network.parse.HttpBase;
+import com.example.wuzp.secondworld.network.parse.HttpBase_j;
 import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
 
 import static com.example.wuzp.secondworld.network.Error.S_UNKNOW_ERROR;
@@ -16,7 +16,7 @@ public abstract class ApiCallback<M> {
     public void onFinish() {
     }
 
-    public void onNext(HttpBase<M> model) {
+    public void onNext(HttpBase_j<M> model) {
         if (model == null) {
             onFailure(new Error(Error.S_NULL_DATA, "数据异常"));
             LogUtils.e("ApiCallback -> Data empty exception");

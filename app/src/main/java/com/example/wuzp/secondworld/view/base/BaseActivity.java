@@ -18,7 +18,7 @@ import com.example.wuzp.secondworld.databinding.DialogProgressBinding;
 import com.example.wuzp.secondworld.network.ApiCallback;
 import com.example.wuzp.secondworld.network.ApiStores;
 import com.example.wuzp.secondworld.network.AppClient;
-import com.example.wuzp.secondworld.network.parse.HttpBase;
+import com.example.wuzp.secondworld.network.parse.HttpBase_j;
 import com.example.wuzp.secondworld.utils.Night;
 import com.example.wuzp.secondworld.view.widget.CommonDialog;
 
@@ -79,9 +79,9 @@ public class BaseActivity extends FragmentActivity implements Night.NightModeCha
 
         Disposable disposable = flowable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<HttpBase<T>>() {
+                .subscribe(new Consumer<HttpBase_j<T>>() {
                     @Override
-                    public void accept(HttpBase<T> o) throws Exception {
+                    public void accept(HttpBase_j<T> o) throws Exception {
                         apiCallback.onNext(o);
                     }
                 }, new Consumer<Throwable>() {
