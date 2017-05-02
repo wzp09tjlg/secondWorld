@@ -7,4 +7,7 @@
     <item name="night_drawableleft" type="id"></item>
     <!-- 在databinding中定义的一个Id -->
     <item name="id_viewholder" type="id"/>
+    <!-- FloatingButton  -->
+    <item name="fab_expand_menu_button" type="id"/>
+    <item name="fab_label" type="id"/>
 </resources>

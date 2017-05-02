@@ -1,6 +1,6 @@
 ext {
     kotlin_version = '1.1.0'
-    supportLibrary = '23.1.0'
+    supportLibrary = '24.2.0'
     // version
     HsCompileSdkVersion = 25
     HsBuildToolsVersion = "25.0.1"
@@ -47,6 +47,7 @@ ext {
     fastjson_sdk = files('libs/fastjson-1.2.2.jar')
     h_sdk = project(':hlibrary');
     s_sdk = project(':slibrary');
+    u_meng = files('libs/umeng-analytics-v5.6.3.jar')
     // kotlin
     kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     kotlin8 = "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}";
@@ -66,4 +67,6 @@ ext {
                             multidex          : "com.android.support:multidex:1.0.1"
     ]
   //为了统一的管理，讲所有的三方库都管理在这一个地方，便于各个modual的编译版本的统一
+    //在进行打包的过程中 因为引入不同的安卓源码版本 所以可能会导致源码版本中涉及到的库 和 引用的支持库冲突
+    //当前就是因为使用recyclerView的引用的版本是24.2 于V4包23.1 版本冲突
 }

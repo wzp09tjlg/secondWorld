@@ -10,6 +10,9 @@
     <!-- 读写权限还是需要的 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 需要获取读取通话记录的权限 -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
     <!-- 正常运行的测试代码 -->
     <application
@@ -46,11 +49,20 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.glide.GlideActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.task.TaskActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.loader.LoaderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.cursorloader.CursorloaderActivity"
+            android:screenOrientation="portrait"/>
         <!-- Ument -->
         <!-- AppKey 58e4b1ce07fe6565450015d3 -->
         <!-- Umeng Message Secret  82525af778368e5acb8907328338d74e-->
         <!-- App Master Secret 1tzf5fcp9puu1p2wz9zqrl2ymb7jkvps-->
         <!-- 包名  com.example.wuzp.secondworld-->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${CHANNEL_NAME}" />
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58e4b1ce07fe6565450015d3" />

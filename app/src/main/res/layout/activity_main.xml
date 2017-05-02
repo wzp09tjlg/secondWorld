@@ -91,4 +91,33 @@
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:fab_addButtonColorNormal="#ff9600"
+        app:fab_addButtonColorPressed="#ff9600"
+        app:fab_expandDirection="right">
+
+        <com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_manager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="#ff9600"
+            app:fab_colorPressed="#ff9600"
+            app:fab_icon="@drawable/icon_bookmanager"
+            />
+
+        <com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_into"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="#ff9600"
+            app:fab_colorPressed="#ff9600"
+            app:fab_icon="@drawable/sdcaredmanager"
+            />
+    </com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionsMenu>
+
 </android.support.constraint.ConstraintLayout>

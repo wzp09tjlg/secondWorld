@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+   <LinearLayout
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <Button
+           android:id="@+id/btn_get"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Get"
+           android:gravity="center"
+           android:textSize="16dp"/>
+       <!-- step1.这里使用listView来展示数据，尝试使用cursorAdapter -->
+      <!-- <ListView
+           android:id="@+id/list"
+           android:layout_width="match_parent"
+           android:layout_height="10dp"
+           android:overScrollMode="never"></ListView>-->
+       <!-- step2.这里使用RecyclerView来展示数据，尝试使用RecyclerCursorAdapter -->
+       <android.support.v7.widget.RecyclerView
+           android:id="@+id/recycler"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:overScrollMode="never"></android.support.v7.widget.RecyclerView>
+   </LinearLayout>
+</layout>

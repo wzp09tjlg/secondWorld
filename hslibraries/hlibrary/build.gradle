@@ -25,12 +25,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // Test Framework
     testCompile junit
-    debugCompile logutils_debug
-    releaseCompile logutils_release
-    testCompile logutils_debug
-    debugCompile leakcanary_debug
-    releaseCompile leakcanary_release
-    testCompile leakcanary_test
 
     // Google Support Lib
     compile rootProject.ext.support_dependencies["v7"]

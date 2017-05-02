@@ -215,13 +215,12 @@ public class CommonHelper {
         }
     }
 
-    // 处理重复按键操作方法
+    // 处理重复按键操作方法  处理200秒以内的点击是无效的
     public static long lastClickTime;
-
     public static boolean isFastDoubleClick() {
         long time = System.currentTimeMillis();
         long timeD = time - lastClickTime;
-        if (0 < timeD && timeD < 800) {
+        if (0 < timeD && timeD < 300) {
             return true;
         }
         lastClickTime = time;

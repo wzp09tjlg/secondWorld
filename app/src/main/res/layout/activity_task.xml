@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+   <RelativeLayout
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:background="@drawable/drawable_translate_bg">
+       <RelativeLayout
+           android:layout_width="250dp"
+           android:layout_height="wrap_content"
+           android:background="@drawable/drawable_edit_bg_night">
+           <TextView
+               android:id="@+id/text_title"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:textSize="16dp"
+               android:textColor="#FFFFFF"
+               android:text="this is Tile"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="20dp"
+               android:layout_marginBottom="20dp"
+               android:singleLine="true" />
+           <View
+               android:id="@+id/view_divider"
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="#aaaaaa"
+               android:layout_below="@+id/text_title" />
+           <TextView
+               android:id="@+id/text_content"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:minHeight="100dp"
+               android:layout_below="@+id/view_divider"
+               android:textColor="#EEEEEE"
+               android:textSize="16dp"
+               android:padding="20dp"
+               android:gravity="center"
+               android:text="this is a content text,and just to test for this is demo and just to one two three four" />
+
+           <Button
+               android:id="@+id/btn_speak"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:text="speak"
+               android:textSize="16dp"
+               android:layout_below="@+id/text_content"
+               android:layout_centerHorizontal="true" />
+       </RelativeLayout>
+   </RelativeLayout>
+</layout>

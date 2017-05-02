@@ -34,10 +34,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-
+            applicationVariants.all { variant ->
+                appendVersionName(variant, defaultConfig)
+            }
             //os库只选择支持arm平台 x86 及其他平台可以忽略
             ndk {
-                abiFilters "armeabi-v7a"
+                abiFilters "armeabi-v7a","arm64-v8a"
             }
         }
 
@@ -108,6 +110,80 @@ android {
             returnDefaultValues = true
         }
     }
+
+    //通过友盟的多渠道打包步骤：
+    //1.添加友盟的统计的jar包
+    //2.在清单文件中  添加holder
+    //<meta-data
+    //          android:name="UMENG_CHANNEL"
+    //          android:value="CHANNEL_NAME" />
+    //3.使用gradle 替换清单文件中的 CHANNEL_NAME
+    //   gradle 中存在指令 将自动那个执行  productFlavors中的配置，替换CHANNEL_NAME 为相应的渠道
+    //4.在打包之后 将apk的名字修改成可识别的名字 在buildTypes中 执行定义的函数，
+    // 将打完包之后的apk修改成带渠道号的名字 （当然也是需要定义这个函数的appendVersionName）
+    //applicationVariants.all { variant ->
+    //   appendVersionName(variant, defaultConfig)
+    //   }
+
+            productFlavors {
+//        samsung{ // 三星
+//            manifestPlaceholders = [CHANNEL_NAME: "samsung"]
+//        }
+//        baidu {//百度助手
+//            manifestPlaceholders = [CHANNEL_NAME: "baidu"]
+//        }
+//        anzhuomarket {//安卓市场
+//            manifestPlaceholders = [CHANNEL_NAME: "anzhuomarket"]
+//        }
+//        jiuyao {//91
+//            manifestPlaceholders = [CHANNEL_NAME: "jiuyao"]
+//        }
+//        a360 {//360手机助手
+//            manifestPlaceholders = [CHANNEL_NAME: "360"]
+//        }
+//        anzhi {//安智
+//            manifestPlaceholders = [CHANNEL_NAME: "anzhi"]
+//        }
+//        xiaomi {//小米
+//            manifestPlaceholders = [CHANNEL_NAME: "xiaomi"]
+//        }
+//        wandoujia {//豌豆荚
+//            manifestPlaceholders = [CHANNEL_NAME: "wandoujia"]
+//        }
+//        oppo {//oppo
+//            manifestPlaceholders = [CHANNEL_NAME: "oppo"]
+//        }
+//        yingyongbao {//yingyongbao
+//            manifestPlaceholders = [CHANNEL_NAME: "yingyongbao"]
+//        }
+//        meizu {//meizu
+//            manifestPlaceholders = [CHANNEL_NAME: "meizu"]
+//        }
+//        huawei {//huawei
+//            manifestPlaceholders = [CHANNEL_NAME: "huawei"]
+//        }
+//        vivo {//vivo
+//            manifestPlaceholders = [CHANNEL_NAME: "vivo"]
+//        }
+//        sogou {//搜狗手机
+//            manifestPlaceholders = [CHANNEL_NAME: "sogou"]
+//        }
+//        LeTV {//乐视
+//            manifestPlaceholders = [CHANNEL_NAME: "LeTV"]
+//        }
+//        ChinaUnicom {//中国联通
+//            manifestPlaceholders = [CHANNEL_NAME: "ChinaUnicom"]
+//        }
+//        PP {//PP助手
+//            manifestPlaceholders = [CHANNEL_NAME: "PP"]
+//        }
+//        Lenovo {// 联想
+//            manifestPlaceholders = [CHANNEL_NAME: "Lenovo"]
+//        }
+        HuaSheng {// 花生官网
+            manifestPlaceholders = [CHANNEL_NAME: "HuaSheng"]
+        }
+    }
 }
 
 dependencies {
@@ -144,7 +220,6 @@ dependencies {
     releaseCompile leakcanary_release
     testCompile leakcanary_test
     //kotlin
-    //compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile kotlin7
     //test frameWork
     testCompile junit
@@ -161,7 +236,22 @@ dependencies {
     // local sdk
     compile h_sdk
     compile s_sdk
+    // u_meng 统计相关的东西
+    compile u_meng
 }
 repositories {
     mavenCentral()
+}
+
+def appendVersionName(variant, defaultConfig) {
+    variant.outputs.each { output ->
+        if (output.zipAlign) {
+            def file = output.outputFile
+            def fileName = file.name.replace("-release.apk", "-" + defaultConfig.versionName + "-release.apk")
+            output.outputFile = new File(file.parent, fileName)
+        }
+        def file = output.packageApplication.outputFile
+        def fileName = file.name.replace("-release.apk", "-" + defaultConfig.versionName + "-release.apk")
+        output.packageApplication.outputFile = new File(file.parent, fileName)
+    }
 }

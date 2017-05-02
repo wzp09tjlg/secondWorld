@@ -1,6 +1,6 @@
 package com.example.slibrary.Utils;
 
-import com.apkfuns.logutils.LogUtils;
+import android.util.Log;
 
 /**
  * Created by wuzp on 2017/4/24.
@@ -8,6 +8,6 @@ import com.apkfuns.logutils.LogUtils;
 public class UUtils {
 
     public static void show(String msg){
-        LogUtils.e("msg:" + msg);
+        Log.e("abcd","msg:" + msg);
     }
 }
