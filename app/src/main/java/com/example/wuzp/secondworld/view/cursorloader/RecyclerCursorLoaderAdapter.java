@@ -32,7 +32,7 @@ public class RecyclerCursorLoaderAdapter extends RecyclerViewCursorAdapter<Recyc
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_loader,parent);
+        View view = inflater.inflate(R.layout.item_loader,null);//获取View的时候 在6.0以上的手机 可能会崩溃,注意不要传parent，直接传null 就行
        // ItemLoaderBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_loader,null,false);
         ViewHolder viewHolder = new ViewHolder(view);
        // viewHolder.setBinding(binding);

@@ -16,13 +16,21 @@ import com.example.wuzp.secondworld.HApplication;
 import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.databinding.ActivityGlideBinding;
 import com.example.wuzp.secondworld.network.parse.TopicBean;
+import com.example.wuzp.secondworld.stats.EventFinal;
+import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.base.BindingActivity;
+import com.umeng.analytics.MobclickAgent;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by wuzp on 2017/4/24.
  */
 public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePresenter> implements
         GlideContract.IView {
+    private static final String TAG = GlideActivity.class.getSimpleName();
+
     private GlideViewWrapper viewWrapper = new GlideViewWrapper();
     private TopicBean bean;
 
@@ -32,6 +40,15 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
         viewWrapper.addBinding(binding);
         viewWrapper.setItemClickListener(getItemListener());
         mvpPresenter.start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Map<String,String> params = new HashMap<>();
+        params.put("device_id", UUID.getInstance(this).getUUID());
+        params.put("tag", TAG);
+        MobclickAgent.onEvent(this, EventFinal.ACTIVITY_GLIDEACTIVITY, params);
     }
 
     @Override
@@ -57,6 +74,7 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
                     String url = bean.getItems().get(0).getData().get(0).getImage();//获取一个URL的地址
                     doGlideLoadImage(url);
                 }
+                MobclickAgent.onEvent(GlideActivity.this, EventFinal.CLICK_GLIDEACTIVITY_CLICK);
             }
         };
         return onItemClick;

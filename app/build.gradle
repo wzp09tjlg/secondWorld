@@ -12,6 +12,10 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "boolean", "AUTO_UPDATES", "true"
+        buildConfigField "String","BASE_URL","\"http://www.test.com/\""
+        buildConfigField "int","DATE","20160701"
     }
     signingConfigs {
         release {
@@ -45,8 +49,6 @@ android {
 
         //debug的时候可以向buildConfig中写入自己定义的数据
         debug{
-            buildConfigField "String","BASE_URL","\"http://www.test.com/\""
-            buildConfigField "int","DATE","20160701"
             signingConfig signingConfigs.debug
         }
     }
@@ -182,6 +184,7 @@ android {
 //        }
         HuaSheng {// 花生官网
             manifestPlaceholders = [CHANNEL_NAME: "HuaSheng"]
+            buildConfigField "boolean", "AUTO_UPDATES", "false"
         }
     }
 }

@@ -314,4 +314,21 @@ public class CommonHelper {
         }
         return false;
     }
+
+    static int MAX_GENERATE_COUNT = 9999;
+    static int sGenerateCount = 0;
+    /**
+     * 生成唯一字符串
+     *
+     * @return
+     */
+    public static synchronized String getUniqueString() {
+        if (sGenerateCount > MAX_GENERATE_COUNT) {
+            sGenerateCount = 0;
+        }
+
+        String uniqueString = Long.toString(System.currentTimeMillis()) + Integer.toString(sGenerateCount);
+        sGenerateCount++;
+        return uniqueString;
+    }
 }

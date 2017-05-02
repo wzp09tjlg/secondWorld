@@ -47,7 +47,7 @@ ext {
     fastjson_sdk = files('libs/fastjson-1.2.2.jar')
     h_sdk = project(':hlibrary');
     s_sdk = project(':slibrary');
-    u_meng = files('libs/umeng-analytics-v5.6.3.jar')
+    u_meng = files('libs/umeng-analytics-v6.1.0.jar')
     // kotlin
     kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     kotlin8 = "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}";

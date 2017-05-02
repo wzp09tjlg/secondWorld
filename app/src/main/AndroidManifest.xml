@@ -14,6 +14,12 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
+    <!-- 友盟统计需要的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+
     <!-- 正常运行的测试代码 -->
     <application
         android:name=".HApplication"
@@ -63,11 +69,16 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${CHANNEL_NAME}" />
+         <!-- 应用名叫做 第二极 在友盟上申请的appKey -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58e4b1ce07fe6565450015d3" />
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="82525af778368e5acb8907328338d74e" />
+        <!-- 应用名叫 第二世界  在友盟上申请的appKey，但是没有appSecret-->
+        <!--  <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="590823941c5dd07763001120" />-->
     </application>
 </manifest>

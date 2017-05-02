@@ -16,6 +16,7 @@ import com.example.wuzp.secondworld.network.ApiCallback;
 import com.example.wuzp.secondworld.network.parse.HttpBase_j;
 import com.example.wuzp.secondworld.utils.Night;
 import com.example.wuzp.secondworld.view.widget.CommonDialog;
+import com.umeng.analytics.MobclickAgent;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -46,6 +47,20 @@ public class BaseFragment extends Fragment implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(TAG);
+        //MobclickAgent.onResume(getContext()); //这个处理应该放置在承载碎片的activity中
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(TAG);
+        //MobclickAgent.onPause(getContext());//这个处理应该放置在承载碎片的activity中
     }
 
     @Override
