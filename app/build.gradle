@@ -16,8 +16,20 @@ android {
         buildConfigField "boolean", "AUTO_UPDATES", "true"
         buildConfigField "String","BASE_URL","\"http://www.test.com/\""
         buildConfigField "int","DATE","20160701"
+
+        //ge个推配置应用的基本参数
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "z0hMfRNLqE6UlkIpvofdI9",
+                GETUI_APP_KEY   : "fud1nke6yG9MtTJAFkOKCA",
+                GETUI_APP_SECRET: "Wz2CYfKwQsAuf3Idwilga8"]
+
+      //个推 os库只选择支持arm平台 x86 及其他平台可以忽略
+        ndk {
+            abiFilters "armeabi"
+        }
     }
     signingConfigs {
+        //0ead6353aea4a9a2c4f5876823936547  应用的签名
         release {
             storeFile file('deploy/keystore.jks')
             storePassword RELEASE_STORE_PASSWORD
@@ -41,10 +53,7 @@ android {
             applicationVariants.all { variant ->
                 appendVersionName(variant, defaultConfig)
             }
-            //os库只选择支持arm平台 x86 及其他平台可以忽略
-            ndk {
-                abiFilters "armeabi-v7a","arm64-v8a"
-            }
+
         }
 
         //debug的时候可以向buildConfig中写入自己定义的数据
@@ -170,9 +179,9 @@ android {
 //        sogou {//搜狗手机
 //            manifestPlaceholders = [CHANNEL_NAME: "sogou"]
 //        }
-//        LeTV {//乐视
-//            manifestPlaceholders = [CHANNEL_NAME: "LeTV"]
-//        }
+        LeTV {//乐视
+            manifestPlaceholders = [CHANNEL_NAME: "LeTV"]
+        }
 //        ChinaUnicom {//中国联通
 //            manifestPlaceholders = [CHANNEL_NAME: "ChinaUnicom"]
 //        }
@@ -182,14 +191,15 @@ android {
 //        Lenovo {// 联想
 //            manifestPlaceholders = [CHANNEL_NAME: "Lenovo"]
 //        }
-        HuaSheng {// 花生官网
-            manifestPlaceholders = [CHANNEL_NAME: "HuaSheng"]
-            buildConfigField "boolean", "AUTO_UPDATES", "false"
-        }
+//        HuaSheng {// 花生官网
+//            manifestPlaceholders = [CHANNEL_NAME: "HuaSheng"]
+//            buildConfigField "boolean", "AUTO_UPDATES", "false"
+//        }
     }
 }
 
 dependencies {
+    //所有在lib中添加的jar 使用下边的这个命令 都会加入到打包中，所以不需要单独针对lib中的jar加入
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //RecyclerView
     compile recyclerview
@@ -241,6 +251,14 @@ dependencies {
     compile s_sdk
     // u_meng 统计相关的东西
     compile u_meng
+    // netty 新的一种网络连接
+    compile netty
+    // 支持gif的一种三方库
+    compile gif
+    // 支持个推
+//    compile gt
+//    compile gt_jar
+//    compile gt_json
 }
 repositories {
     mavenCentral()

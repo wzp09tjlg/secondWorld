@@ -20,15 +20,44 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--<uses-permission android:name="android.permission.INTERNET" />-->
 
+    <!-- 个推使用权限 -->
+    <!--<uses-permission android:name="android.permission.INTERNET"/>-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- 支持iBeancon 需要蓝牙权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!-- 支持个推3.0 电子围栏功能 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 浮动通知权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="getui.permission.GetuiService.${applicationId}"/>
+
+    <!-- 个推自定义的权限 -->
+    <permission
+        android:name="getui.permission.GetuiService.${applicationId}"
+        android:protectionLevel="normal"/>
+
     <!-- 正常运行的测试代码 -->
     <application
         android:name=".HApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- *************************************************************** -->
+        <!-- **************************   Activity             **************-->
+        <!-- *************************************************************** -->
         <activity android:name=".view.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,6 +90,95 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.cursorloader.CursorloaderActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.nettyClient.NettyClientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.gif.GifActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.gt.GtActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 个推 -->
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.igexin.sdk.GActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- *************************************************************** -->
+        <!-- **************************   Service    **************-->
+        <!-- *************************************************************** -->
+
+        <!-- 个推Service -->
+        <!-- 配置SDK核心服务 -->
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:exported="true"
+            android:label="NotificationCenter"
+            android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.service.message"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.igexin.download.DownloadService"
+            android:process=":pushservice"/>
+
+        <!-- 用户自定义服务名 -->
+         <service android:name=".view.gt.GTPushService">
+             android:exported="true"
+             android:label="PushService"
+             android:process=":pushservice">
+        </service>
+        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复-->
+        <service android:name=".view.gt.GTPushIntentService"/>
+
+        <!-- *************************************************************** -->
+        <!-- **************************   BroadcastReceiver    **************-->
+        <!-- *************************************************************** -->
+
+        <!-- 个推的receiver -->
+        <receiver
+            android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- *************************************************************** -->
+        <!-- **************************   ContentProvider    **************-->
+        <!-- *************************************************************** -->
+        <!-- 个推 -->
+        <provider
+            android:name="com.igexin.download.DownloadProvider"
+            android:authorities="downloads.${applicationId}"
+            android:exported="true"
+            android:process=":pushservice"/>
+
+        <!-- *************************************************************** -->
+        <!-- **************************   其他的配置    **************-->
+        <!-- *************************************************************** -->
         <!-- Ument -->
         <!-- AppKey 58e4b1ce07fe6565450015d3 -->
         <!-- Umeng Message Secret  82525af778368e5acb8907328338d74e-->
@@ -80,5 +198,16 @@
         <!--  <meta-data
             android:name="UMENG_APPKEY"
             android:value="590823941c5dd07763001120" />-->
+        <!-- 个推的配置 -->
+        <!-- 貌似这个设置没什么用哈 -->
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="${GETUI_APP_ID}"/>
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="${GETUI_APP_KEY}"/>
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="${GETUI_APP_SECRET}"/>
     </application>
 </manifest>

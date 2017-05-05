@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_log"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="left" />
+
+    <Button android:id="@+id/btn_gt_turn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="gt turn"
+        android:gravity="center"/>
+
+
+    <Button android:id="@+id/btn_gt_tag"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="gt tag"
+        android:gravity="center"/>
+
+    <Button android:id="@+id/btn_gt_time"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="gt time"
+        android:gravity="center"/>
+    <Button android:id="@+id/btn_gt_alis"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="gt alis"
+        android:gravity="center"/>
+    <Button android:id="@+id/btn_gt_cid"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="gt cid"
+        android:gravity="center"/>
+    <Button android:id="@+id/btn_gt_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="gt name"
+        android:gravity="center"/>
+</LinearLayout>

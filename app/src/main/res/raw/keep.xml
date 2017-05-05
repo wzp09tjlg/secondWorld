@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 个推加入的文件 防止项目精简导致个推出现问题 -->
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@layout/getui_notification"/>

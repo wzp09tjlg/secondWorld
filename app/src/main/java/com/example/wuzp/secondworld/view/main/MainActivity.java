@@ -3,13 +3,11 @@ package com.example.wuzp.secondworld.view.main;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +16,7 @@ import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
-import com.example.wuzp.secondworld.view.dialog.AddAlbumActivity;
-import com.example.wuzp.secondworld.view.glide.GlideActivity;
+import com.example.wuzp.secondworld.view.gt.GtActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
 import com.example.wuzp.secondworld.view.retrofit.rxjava.RxJavaTest;
@@ -38,9 +35,7 @@ import static com.example.wuzp.secondworld.utils.CommonHelper.isFastDoubleClick;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private TextView textWorld;
     private TextView textHello;
-    private ListView list;
     private Button btnPost;
     private Button btnGet;
     private Button btnTrace;
@@ -70,16 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        textHello = (TextView) findViewById(R.id.hello);
-        textWorld = (TextView) findViewById(R.id.world);
-        textWorld.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddAlbumActivity.class);
-                startActivity(intent);
-            }
-        });
-        list = (ListView) findViewById(R.id.list);
+        textHello = (TextView) findViewById(R.id.text_hello);
 
         btnGet = $(R.id.btn_get);
         btnPost = $(R.id.btn_post);
@@ -100,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initData() {
         textHello.setText("hello");
-        textWorld.setText("world");
         btnGet.setOnClickListener(this);
         btnPost.setOnClickListener(this);
         btnTrace.setOnClickListener(this);
@@ -130,7 +115,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, DataActivity.class);
         //ActivityUtil.jumpActivity(this, DataListActivity.class);
         //ActivityUtil.jumpActivity(this, DiffActivity.class);
-        ActivityUtil.jumpActivity(this, GlideActivity.class);
+        //ActivityUtil.jumpActivity(this, GlideActivity.class);
+        //ActivityUtil.jumpActivity(this, NettyClientActivity.class);
+        //ActivityUtil.jumpActivity(this, GifActivity.class);
+        ActivityUtil.jumpActivity(this, GtActivity.class);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override

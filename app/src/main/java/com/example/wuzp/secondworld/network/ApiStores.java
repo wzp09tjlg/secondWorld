@@ -18,7 +18,7 @@ import retrofit2.http.QueryMap;
 @SuppressWarnings("All")
 public interface ApiStores {
 
-    // 是否强制使用测试服务器,当这是为true是无论debug，还是release都将使用测试服务器
+    // 是否强制使用测试服务器,当这是为true是无论debug，还是release都将使用正式的服务器
     public static final boolean FORCEUSE_TEST_HOST = false;
     // 安卓花生公参
     public static final String HS_APP_KEY = "android_phone_client";

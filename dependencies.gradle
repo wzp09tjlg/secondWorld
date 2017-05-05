@@ -54,6 +54,15 @@ ext {
     kotlin7 = "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin_version}";
     // constraint
     constraint = "com.android.support.constraint:constraint-layout:1.0.2"
+    //netty
+    netty = files('libs/netty-all-4.1.4.Final.jar')
+    // gif
+    gif =   "pl.droidsonroids.gif:android-gif-drawable:1.0.+"
+    // GT(个推)
+    gt  = "com.getui:sdk:2.10.2.0"
+//    gt_jar = files('libs/GetuiSDK2.10.2.0.jar')
+//    gt_json = files('libs/json_simple-1.1.jar')
+
     // google
     support_dependencies = [design            : "com.android.support:design:${supportLibrary}",
                             recyclerView      : "com.android.support:recyclerview-v7:${supportLibrary}",
