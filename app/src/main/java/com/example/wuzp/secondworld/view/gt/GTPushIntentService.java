@@ -22,7 +22,7 @@ import com.igexin.sdk.message.SetTagCmdMessage;
  */
 public class GTPushIntentService extends GTIntentService {
 
-    private static final String TAG = "GetuiSdkDemo";
+    private static final String TAG = GTPushIntentService.class.getSimpleName();
 
     /**
      * 为了观察透传数据变化.
@@ -36,6 +36,7 @@ public class GTPushIntentService extends GTIntentService {
         LogUtils.d(TAG, "onReceiveServicePid -> " + pid);
     }
 
+    //接收到消息数据
     @Override
     public void onReceiveMessageData(Context context, GTTransmitMessage msg) {
         String appid = msg.getAppid();
@@ -69,6 +70,7 @@ public class GTPushIntentService extends GTIntentService {
         LogUtils.d(TAG, "----------------------------------------------------------------------------------------------");
     }
 
+    //接收到CID数据
     @Override
     public void onReceiveClientId(Context context, String clientid) {
         LogUtils.e(TAG, "onReceiveClientId -> " + "clientid = " + clientid);
@@ -76,11 +78,13 @@ public class GTPushIntentService extends GTIntentService {
         sendMessage(clientid, 1);
     }
 
+    //接收到状态
     @Override
     public void onReceiveOnlineState(Context context, boolean online) {
         LogUtils.d(TAG, "onReceiveOnlineState -> " + (online ? "online" : "offline"));
     }
 
+    //接收到指令结果
     @Override
     public void onReceiveCommandResult(Context context, GTCmdMessage cmdMessage) {
         LogUtils.d(TAG, "onReceiveCommandResult -> " + cmdMessage);
@@ -94,6 +98,7 @@ public class GTPushIntentService extends GTIntentService {
         }
     }
 
+    //这个方法是在设置标签之后 后台成功了才会回调
     private void setTagResult(SetTagCmdMessage setTagCmdMsg) {
         String sn = setTagCmdMsg.getSn();
         String code = setTagCmdMsg.getCode();

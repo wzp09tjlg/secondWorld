@@ -10,37 +10,44 @@
         android:layout_height="200dp"
         android:gravity="left" />
 
-    <Button android:id="@+id/btn_gt_turn"
+    <Button android:id="@+id/btn_getCid"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="gt turn"
+        android:text="gt GetCid"
         android:gravity="center"/>
-
-
-    <Button android:id="@+id/btn_gt_tag"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btn_TurnOn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="gt TurnOn"
+            android:gravity="center"/>
+        <Button android:id="@+id/btn_TurnOff"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="gt TurnOff"
+            android:gravity="center"/>
+    </LinearLayout>
+    <Button android:id="@+id/btn_setTags"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="gt tag"
+        android:text="gt setTags"
         android:gravity="center"/>
-
-    <Button android:id="@+id/btn_gt_time"
+    <Button android:id="@+id/btn_setAlis"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="gt time"
+        android:text="gt setAlis"
         android:gravity="center"/>
-    <Button android:id="@+id/btn_gt_alis"
+    <Button android:id="@+id/btn_setTime"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="gt alis"
+        android:text="gt setTime"
         android:gravity="center"/>
-    <Button android:id="@+id/btn_gt_cid"
+    <Button android:id="@+id/btn_getVersion"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="gt cid"
-        android:gravity="center"/>
-    <Button android:id="@+id/btn_gt_name"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="gt name"
+        android:text="gt getVersion"
         android:gravity="center"/>
 </LinearLayout>

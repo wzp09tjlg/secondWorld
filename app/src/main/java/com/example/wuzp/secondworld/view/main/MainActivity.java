@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.stats.EventFinal;
@@ -19,8 +18,6 @@ import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.gt.GtActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
-import com.example.wuzp.secondworld.view.retrofit.rxjava.RxJavaTest;
-import com.example.wuzp.secondworld.view.retrofit.rxjava2.RxJavaUtil;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String name = "wuzp";
         String address = "beijing";
 
-        Toast.makeText(this, "name:" + name + "  address:" + address, Toast.LENGTH_LONG).show();
+       // Toast.makeText(this, "name:" + name + "  address:" + address, Toast.LENGTH_LONG).show();
     }
 
     private void initData() {
@@ -96,13 +93,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         floatingBtnSDCard.setOnClickListener(this);
         floatingBtnBook.setOnClickListener(this);
 
-        RxJavaUtil javaUtil = new RxJavaUtil();
+        //RxJavaUtil javaUtil = new RxJavaUtil();
         //javaUtil.getSomeRelation();
 //        javaUtil.doSomeMethod2();
 //        javaUtil.doSomeTest5();//.doSomeTest3();//doSomeMethod2();
 
-        RxJavaTest test = new RxJavaTest();
-        test.testOne();
+        //RxJavaTest test = new RxJavaTest();
+        ///test.testOne();
 //        test.testTwo();
 //        test.testForMap();
 //        test.testForMap2();
@@ -183,10 +180,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    AlertDialog.Builder builder = null;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        if(builder != null){
+            builder = null;
+        }
+        builder = new AlertDialog.Builder(mContext);
         builder.setPositiveButton("退出应用", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 MobclickAgent.onKillProcess(mContext);
