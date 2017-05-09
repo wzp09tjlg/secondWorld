@@ -41,6 +41,10 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="getui.permission.GetuiService.${applicationId}"/>
 
+    <!-- 百度语音添加权限 -->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+
     <!-- 个推自定义的权限 -->
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
@@ -95,6 +99,8 @@
         <activity android:name=".view.gif.GifActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.gt.GtActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.tts.TtsActivity"
             android:screenOrientation="portrait"/>
 
         <!-- 个推 -->

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.example.wuzp.secondworld.network.parse.User;
+import com.example.wuzp.secondworld.utils.crashUtils.CrashHandler;
 import com.example.wuzp.secondworld.view.gt.GtActivity;
 import com.squareup.leakcanary.LeakCanary;
 
