@@ -12,6 +12,7 @@ import android.os.Message;
 
 import com.apkfuns.logutils.LogUtils;
 import com.example.wuzp.secondworld.network.parse.User;
+import com.example.wuzp.secondworld.utils.crashUtils.CrashHandler;
 import com.example.wuzp.secondworld.view.gt.GtActivity;
 import com.example.wuzp.secondworld.view.main.MainActivity;
 import com.squareup.leakcanary.LeakCanary;
@@ -46,7 +47,10 @@ public class HApplication extends Application {
         if (handler == null) {
             handler = new GTPushHandler();
         }
+        //注册全局的监听器
         registerActivityLifeCallbacks();
+        //CrashHandler  注册应用的处理异常 (需要些本地的权限)
+        Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(gContext));
     }
 
     /**
