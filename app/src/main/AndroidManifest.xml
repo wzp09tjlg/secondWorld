@@ -4,15 +4,15 @@
 
     <!--<uses-permission android:name="android.permission.READ_CONTACTS"/>-->
     <!-- 申请网络权限 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 照相机的权限 -->
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <!-- 读写权限还是需要的 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 需要获取读取通话记录的权限 -->
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
 
     <!-- 友盟统计需要的权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -24,27 +24,28 @@
     <!--<uses-permission android:name="android.permission.INTERNET"/>-->
     <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
     <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
     <!-- 支持iBeancon 需要蓝牙权限 -->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!-- 支持个推3.0 电子围栏功能 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 浮动通知权限 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="getui.permission.GetuiService.${applicationId}"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="getui.permission.GetuiService.${applicationId}" />
 
     <!-- 个推自定义的权限 -->
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
-        android:protectionLevel="normal"/>
+        android:protectionLevel="normal" />
+    <permission android:name="com.example.wuzp.secondworld.HELLO" />
 
     <!-- 正常运行的测试代码 -->
     <application
@@ -65,37 +66,52 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.dialog.AddAlbumActivity"
-            android:theme="@style/DialogTransparent"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.huasheng.HuashengActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.huasheng.OtherHsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.huasheng.recyclerView.RecyclerActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.permission.PerimissionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.example.wuzp.secondworld.view.databinding.DataActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.datalist.DataListActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.diff.DiffActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.glide.GlideActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.task.TaskActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.loader.LoaderActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.cursorloader.CursorloaderActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.nettyClient.NettyClientActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.gif.GifActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.gt.GtActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.dialog.AddAlbumActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogTransparent" />
+        <activity
+            android:name=".view.huasheng.HuashengActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.huasheng.OtherHsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.huasheng.recyclerView.RecyclerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.permission.PerimissionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.wuzp.secondworld.view.databinding.DataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.datalist.DataListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.diff.DiffActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.glide.GlideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.task.TaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.loader.LoaderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.cursorloader.CursorloaderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.nettyClient.NettyClientActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.gif.GifActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.gt.GtActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 个推 -->
         <activity
@@ -104,7 +120,7 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity
             android:name="com.igexin.sdk.GActivity"
@@ -112,7 +128,7 @@
             android:exported="true"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- *************************************************************** -->
         <!-- **************************   Service    **************-->
@@ -126,43 +142,51 @@
             android:label="NotificationCenter"
             android:process=":pushservice">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.service.message"/>
+                <action android:name="com.igexin.sdk.action.service.message" />
             </intent-filter>
         </service>
         <service
             android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice"/>
+            android:process=":pushservice" />
 
         <!-- 用户自定义服务名 -->
-         <service android:name=".view.gt.GTPushService">
-             android:exported="true"
-             android:label="PushService"
-             android:process=":pushservice">
+        <service android:name=".view.gt.GTPushService">
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice">
         </service>
         <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复-->
-        <service android:name=".view.gt.GTPushIntentService"/>
+        <service android:name=".view.gt.GTPushIntentService" />
 
         <!-- *************************************************************** -->
         <!-- **************************   BroadcastReceiver    **************-->
         <!-- *************************************************************** -->
-
-        <!-- 个推的receiver -->
-        <receiver
-            android:name="com.igexin.sdk.PushReceiver">
+        <receiver android:name=".view.test.GlobalReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="com.igexin.sdk.action.refreshls"/>
-                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <!-- 监听自己的广播 -->
+                <action android:name="com.example.wuzp.secondworld.HELLO" />
+            </intent-filter>
+            <intent-filter>
+                <!-- 监听的动作类型，这里是监听网络连接的状态  -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="com.igexin.download.DownloadReceiver">
+
+        <!-- 个推的receiver -->
+        <receiver android:name="com.igexin.sdk.PushReceiver">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.igexin.sdk.action.refreshls" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
@@ -174,7 +198,7 @@
             android:name="com.igexin.download.DownloadProvider"
             android:authorities="downloads.${applicationId}"
             android:exported="true"
-            android:process=":pushservice"/>
+            android:process=":pushservice" />
 
         <!-- *************************************************************** -->
         <!-- **************************   其他的配置    **************-->
@@ -187,7 +211,7 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${CHANNEL_NAME}" />
-         <!-- 应用名叫做 第二极 在友盟上申请的appKey -->
+        <!-- 应用名叫做 第二极 在友盟上申请的appKey -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58e4b1ce07fe6565450015d3" />
@@ -202,12 +226,12 @@
         <!-- 貌似这个设置没什么用哈 -->
         <meta-data
             android:name="PUSH_APPID"
-            android:value="${GETUI_APP_ID}"/>
+            android:value="${GETUI_APP_ID}" />
         <meta-data
             android:name="PUSH_APPKEY"
-            android:value="${GETUI_APP_KEY}"/>
+            android:value="${GETUI_APP_KEY}" />
         <meta-data
             android:name="PUSH_APPSECRET"
-            android:value="${GETUI_APP_SECRET}"/>
+            android:value="${GETUI_APP_SECRET}" />
     </application>
 </manifest>

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -176,6 +177,12 @@ public class GtActivity extends AppCompatActivity implements View.OnClickListene
             case R.id.btn_getCid://获取CID
                 String cid = PushManager.getInstance().getClientid(this);
                 LogUtils.e("GT CID:" + cid);
+
+                //发送一个自定义的广播
+                Intent intent = new Intent();
+                intent.setAction("com.example.wuzp.secondworld.HELLO");
+                sendBroadcast(intent);
+
                 break;
             case R.id.btn_TurnOn://打开个推的开关
                 if (isServiceRunning) return;
