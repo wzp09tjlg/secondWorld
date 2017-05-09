@@ -35,6 +35,8 @@ public class HApplication extends Application {
         if (handler == null) {
             handler = new GTPushHandler();
         }
+        //CrashHandler  注册应用的处理异常 (需要些本地的权限)
+        Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(gContext));
     }
 
     /**
