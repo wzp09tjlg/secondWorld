@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
@@ -53,7 +55,10 @@ android {
             applicationVariants.all { variant ->
                 appendVersionName(variant, defaultConfig)
             }
-
+            //在打包的时候 只打 armeabi-v7a平台的 arm 是比较老的 arm64-v8a 是比较新的
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
         }
 
         //debug的时候可以向buildConfig中写入自己定义的数据
@@ -61,6 +66,17 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    /** 看来还是得多学习gradle的脚本语法啊，很明显的错误 都不知道 */
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            output.outputFile = new File(file.parent,
+                    "app-" + defaultConfig.versionName + "-" + "Huasheng" + "-" + buildTime() + ".apk")
+            //生成的文件名：myapp+版本名+生成日期+.apk
+        }
+    }
+
     //打开DataBinding的开关
     dataBinding {
         enabled true
@@ -259,6 +275,9 @@ dependencies {
 //    compile gt
 //    compile gt_jar
 //    compile gt_json
+
+    //添加侧滑的三方库
+    compile 'com.r0adkll:slidableactivity:2.0.5'
 }
 repositories {
     mavenCentral()
@@ -275,4 +294,10 @@ def appendVersionName(variant, defaultConfig) {
         def fileName = file.name.replace("-release.apk", "-" + defaultConfig.versionName + "-release.apk")
         output.packageApplication.outputFile = new File(file.parent, fileName)
     }
+}
+
+def buildTime() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    df.setTimeZone(TimeZone.getDefault())
+    return df.format(new Date())
 }

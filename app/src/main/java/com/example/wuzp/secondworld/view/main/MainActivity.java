@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String[] data = {"adas", "asdasas", "sadasda", "adsa", "dasdasdwq", "dasdas"};
     private Context mContext = this;
 
+    private int count  = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,7 +170,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.fab_into:
                 if(isFastDoubleClick()) return;
-                ToastMsg.getInsance().show("SDCard onClick here");
+                count ++;
+                showMsg(count % 6);
                 MobclickAgent.onEvent(this, EventFinal.CLICK_MAINACTIVITY_CLICK);
                 break;
             case R.id.fab_manager:
@@ -178,6 +181,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                   MsgView.getInstance(this).show(this,"第一章" + i);
                 MobclickAgent.onEvent(this, EventFinal.CLICK_MAINACTIVITY_CLICK);
                 break;
+        }
+    }
+
+    private void showMsg(int count){
+        if(count == 0){
+            ToastMsg.getInsance().show("收到哈骄傲了和大家散了");
+        }else if(count == 1){
+            ToastMsg.getInsance().show("擦扫描摩奥微粒贷");
+        }else if(count == 2){
+            ToastMsg.getInsance().show("萨克雷死绿绿绿啦所绿");
+        }else if(count == 3){
+            ToastMsg.getInsance().show("奥美斯阿拉累计进口撕");
+        }else if(count == 4){
+            ToastMsg.getInsance().show("哦设计涉及宽带连接点击");
+        }else if(count == 5){
+            ToastMsg.getInsance().show("机打击我换个环境及家里");
         }
     }
 
