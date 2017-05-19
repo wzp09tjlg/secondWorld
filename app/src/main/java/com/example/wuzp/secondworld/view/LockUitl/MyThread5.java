@@ -26,6 +26,7 @@ public class MyThread5 extends Thread {//姓神不信神，还是踏踏实实的
         for(int i=0;i<names.length;i++){
            new MyThread5(names[i],i,lockBean).start();
         }
+        //这里的输出不一定是 a b c d这样的顺序，但是只要a输出了，那么一定会让a执行完才会调用其他的。
     }
 
     @Override

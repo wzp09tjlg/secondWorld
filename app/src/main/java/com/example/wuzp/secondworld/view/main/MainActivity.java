@@ -179,8 +179,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.fab_manager:
                 if(isFastDoubleClick()) return;
                // ToastMsg.getInsance().show("BookManager onClick here");
-                for (int i=0;i<5;i++)
-                  MsgView.getInstance(this).show(this,"第一章" + i);
+                for (int i=0;i<5;i++){
+                    final int tempI = i;
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            MsgView.getInstance(MainActivity.this).show(MainActivity.this,"第一章" + tempI);
+                        }
+                    }).start();
+
+                }
+
                 MobclickAgent.onEvent(this, EventFinal.CLICK_MAINACTIVITY_CLICK);
                 break;
         }
