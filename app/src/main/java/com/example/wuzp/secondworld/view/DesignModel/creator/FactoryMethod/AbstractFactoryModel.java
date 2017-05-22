@@ -1,4 +1,4 @@
-package com.example.wuzp.secondworld.view.DesignModel.creator.asbtractfactory;
+package com.example.wuzp.secondworld.view.DesignModel.creator.FactoryMethod;
 
 /**
  * Created by wuzp on 2017/5/14.

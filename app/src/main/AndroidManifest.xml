@@ -44,6 +44,9 @@
     <!-- 百度语音添加权限 -->
     <!--<uses-permission android:name="android.permission.INTERNET" />-->
     <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!-- 本地文件查找添加权限 -->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 
     <!-- 个推自定义的权限 -->
     <permission
@@ -110,6 +113,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.loaderclient.LoaderDetailActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.search.SearchActivity"
+            android:screenOrientation="portrait"/>/
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
