@@ -75,7 +75,8 @@ public class SearchActivity extends BindingActivity<ActivitySearchBinding, Searc
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_search:
-                doSearch();//一这种多线程去遍历本地文件的 方式获取本地某种文件格式的搜索 至少要耗费3秒以上的时间
+                //doSearch();//一这种多线程去遍历本地文件的 方式获取本地某种文件格式的搜索 至少要耗费3秒以上的时间
+                doTestScan();
                 break;
             case R.id.btn_scan:
                 doScan();
@@ -256,4 +257,8 @@ public class SearchActivity extends BindingActivity<ActivitySearchBinding, Searc
         }
     }
 
+
+    //使用jar包中的方法 来循环遍历子文件夹中的文件 //跟子线程中遍历文件夹的时间一样 秒级别，安卓中查询文件的 时间是十毫秒级别
+    private void doTestScan(){
+    }
 }

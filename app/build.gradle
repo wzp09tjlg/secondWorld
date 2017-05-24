@@ -211,6 +211,9 @@ android {
 //            manifestPlaceholders = [CHANNEL_NAME: "HuaSheng"]
 //            buildConfigField "boolean", "AUTO_UPDATES", "false"
 //        }
+          a360_p{//添加一个渠道 用于查看忽略文件中的效果
+              manifestPlaceholders = [CHANNEL_NAME: "401"]
+          }
     }
 }
 
@@ -251,6 +254,11 @@ dependencies {
     //kotlin
     compile kotlin7
     //test frameWork
+    //不知道这个是干嘛用的  删掉之后在AndroidTest就报错(引用报错) 加上之后就好了
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
     testCompile junit
     debugCompile logutils_debug
     releaseCompile logutils_release
