@@ -214,6 +214,9 @@ android {
           a360_p{//添加一个渠道 用于查看忽略文件中的效果
               manifestPlaceholders = [CHANNEL_NAME: "401"]
           }
+          yingyongbao_p{//添加一个渠道 用于查看忽略文件中的效果
+              manifestPlaceholders = [CHANNEL_NAME: "401"]
+          }
     }
 }
 
