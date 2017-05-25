@@ -114,7 +114,9 @@
         <activity android:name=".view.loaderclient.LoaderDetailActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.search.SearchActivity"
-            android:screenOrientation="portrait"/>/
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.refresh.RefreshActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
