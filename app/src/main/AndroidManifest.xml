@@ -119,6 +119,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.beisier.BesierActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.matrix.MatrixActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.matrix.TestImgActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
