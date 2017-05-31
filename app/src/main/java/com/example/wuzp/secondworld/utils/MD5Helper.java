@@ -20,6 +20,8 @@ import java.util.TreeMap;
  * 3.对文件的签名
  * */
 public class MD5Helper {
+	public static final String COMMON_KEY = "aaa_scrt";
+	public static final String COMMON_VALUE = "kWw0ryRC0F5rkbrk";
 	private static byte[] hex = new byte[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
 	/** 对字符串的签名 */
