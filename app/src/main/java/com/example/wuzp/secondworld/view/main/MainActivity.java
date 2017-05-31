@@ -15,9 +15,9 @@ import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
-import com.example.wuzp.secondworld.view.gt.GtActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
+import com.example.wuzp.secondworld.view.pageView.PageViewActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String[] data = {"adas", "asdasas", "sadasda", "adsa", "dasdasdwq", "dasdas"};
     private Context mContext = this;
+
+    private int count  = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +117,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, GlideActivity.class);
         //ActivityUtil.jumpActivity(this, NettyClientActivity.class);
         //ActivityUtil.jumpActivity(this, GifActivity.class);
-        ActivityUtil.jumpActivity(this, GtActivity.class);
+        //ActivityUtil.jumpActivity(this, GtActivity.class);
+        //ActivityUtil.jumpActivity(this, TtsActivity.class);
+        //ActivityUtil.jumpActivity(this, ClientActivity.class);
+        //ActivityUtil.jumpActivity(this, LoaderClientActivity.class);
+        //ActivityUtil.jumpActivity(this, SearchActivity.class);
+        //ActivityUtil.jumpActivity(this, BesierActivity.class);
+        //ActivityUtil.jumpActivity(this, MatrixActivity.class);
+        //ActivityUtil.jumpActivity(this, TestImgActivity.class);
+        ActivityUtil.jumpActivity(this, PageViewActivity.class);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override
@@ -167,16 +177,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.fab_into:
                 if(isFastDoubleClick()) return;
-                ToastMsg.getInsance().show("SDCard onClick here");
+                count ++;
+                showMsg(count % 6);
                 MobclickAgent.onEvent(this, EventFinal.CLICK_MAINACTIVITY_CLICK);
                 break;
             case R.id.fab_manager:
                 if(isFastDoubleClick()) return;
                // ToastMsg.getInsance().show("BookManager onClick here");
-                for (int i=0;i<5;i++)
-                  MsgView.getInstance(this).show(this,"第一章" + i);
+                for (int i=0;i<5;i++){
+                    final int tempI = i;
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            MsgView.getInstance(MainActivity.this).show(MainActivity.this,"第一章" + tempI);
+                        }
+                    }).start();
+
+                }
+
                 MobclickAgent.onEvent(this, EventFinal.CLICK_MAINACTIVITY_CLICK);
                 break;
+        }
+    }
+
+    private void showMsg(int count){
+        if(count == 0){
+            ToastMsg.getInsance().show("收到哈骄傲了和大家散了");
+        }else if(count == 1){
+            ToastMsg.getInsance().show("擦扫描摩奥微粒贷");
+        }else if(count == 2){
+            ToastMsg.getInsance().show("萨克雷死绿绿绿啦所绿");
+        }else if(count == 3){
+            ToastMsg.getInsance().show("奥美斯阿拉累计进口撕");
+        }else if(count == 4){
+            ToastMsg.getInsance().show("哦设计涉及宽带连接点击");
+        }else if(count == 5){
+            ToastMsg.getInsance().show("机打击我换个环境及家里");
         }
     }
 

@@ -1,6 +1,11 @@
 package com.example.wuzp.secondworld.view.glide;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,6 +31,13 @@ import java.util.Map;
 
 /**
  * Created by wuzp on 2017/4/24.
+ * 做下 监听home键的监听
+ * 1.猜测在应用中 keyDown 和 keyUp事件中 是监听不到的。因为系统要处理这个键啊
+ * 2.网上的四种方法监听home键处理如下
+ *   1)onSaveInstanceState方法 (不推荐)
+ *   2)onUserLeaveHint方法      (不能保证键能监听到)
+ *   3)ACTION_CLOSE_SYSTEM_DIALOGS (广播，可以监听到)
+ *   4)framework PhoneWindowManager.java(framework层处理，涉及比较深入)
  */
 public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePresenter> implements
         GlideContract.IView {
@@ -34,12 +46,17 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
     private GlideViewWrapper viewWrapper = new GlideViewWrapper();
     private TopicBean bean;
 
+    HomeKeyEventBroadCastReceiver receiver = new HomeKeyEventBroadCastReceiver();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewWrapper.addBinding(binding);
         viewWrapper.setItemClickListener(getItemListener());
         mvpPresenter.start();
+
+        registerReceiver(receiver, new IntentFilter(
+                Intent. ACTION_CLOSE_SYSTEM_DIALOGS));
     }
 
     @Override
@@ -49,6 +66,12 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
         params.put("device_id", UUID.getInstance(this).getUUID());
         params.put("tag", TAG);
         MobclickAgent.onEvent(this, EventFinal.ACTIVITY_GLIDEACTIVITY, params);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 
     @Override
@@ -128,4 +151,51 @@ public class GlideActivity extends BindingActivity<ActivityGlideBinding, GlidePr
 
         UUtils.show("THIS IS A TEST TOO HERE");
     }
+
+    //监听home键的处理
+    //1.监听keyUp 及keyDown 事件 (虽然无效，但是还是需要做测试)
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_DOWN){
+            LogUtils.e("keydown","---");
+            if(keyCode == KeyEvent.KEYCODE_HOME){
+                LogUtils.e("keyhome","--- ---");
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_UP){
+            LogUtils.e("keyup","---");
+            if(keyCode == KeyEvent.KEYCODE_HOME){
+                LogUtils.e("keyhome","--- ---");
+            }
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
+    //测试2 使用其他四种方式监听home 键的处理
+    protected void onSaveInstanceState(Bundle outState){
+       //怎么监听？ 怎么使用 不知道啊
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        //怎么监听 怎么使用。我也不知道啊
+    }
+
+    class HomeKeyEventBroadCastReceiver extends BroadcastReceiver{
+        //使用广播是可以处理 到home键的
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(Intent.ACTION_CLOSE_SYSTEM_DIALOGS.equals(intent.getAction())){
+                LogUtils.e("glide","---------------------get Home key listener");
+            }
+        }
+    }
+
+    //第四种方法没有那么深的
 }

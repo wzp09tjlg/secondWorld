@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
@@ -50,10 +52,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            applicationVariants.all { variant ->
-                appendVersionName(variant, defaultConfig)
-            }
 
+            //在打包的时候 只打 armeabi-v7a平台的 arm 是比较老的 arm64-v8a 是比较新的
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
         }
 
         //debug的时候可以向buildConfig中写入自己定义的数据
@@ -61,6 +64,23 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    /** 看来还是得多学习gradle的脚本语法啊，很明显的错误 都不知道 */
+    /***
+     *
+     applicationVariants.all { variant ->
+     appendVersionName(variant, defaultConfig)
+     }
+     * */
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            output.outputFile = new File(file.parent,
+                    "app-" + defaultConfig.versionName + "-" + "Huasheng" + "-" + buildTime() + ".apk")
+            //生成的文件名：myapp+版本名+生成日期+.apk
+        }
+    }
+
     //打开DataBinding的开关
     dataBinding {
         enabled true
@@ -136,6 +156,11 @@ android {
     //   appendVersionName(variant, defaultConfig)
     //   }
 
+    //当使用这个打渠道包时 如果这里边没有任何一个渠道，在编译时就会报错，
+    //Error:Execution failed for task ':app:processDebugManifest'.
+    //> Manifest merger failed with multiple errors, see logs
+      //解决方案有两种1:去掉清单文件中的 友盟的渠道号
+                    //2:打开渠道包 在编译过程中 替换清单文件中渠道号的信息(因为在编译清单文件时 发现 channel这个参数无法转移成渠道 所以报错)
             productFlavors {
 //        samsung{ // 三星
 //            manifestPlaceholders = [CHANNEL_NAME: "samsung"]
@@ -179,9 +204,9 @@ android {
 //        sogou {//搜狗手机
 //            manifestPlaceholders = [CHANNEL_NAME: "sogou"]
 //        }
-        LeTV {//乐视
-            manifestPlaceholders = [CHANNEL_NAME: "LeTV"]
-        }
+//        LeTV {//乐视
+//            manifestPlaceholders = [CHANNEL_NAME: "LeTV"]
+//        }
 //        ChinaUnicom {//中国联通
 //            manifestPlaceholders = [CHANNEL_NAME: "ChinaUnicom"]
 //        }
@@ -195,6 +220,12 @@ android {
 //            manifestPlaceholders = [CHANNEL_NAME: "HuaSheng"]
 //            buildConfigField "boolean", "AUTO_UPDATES", "false"
 //        }
+//          a360_p{//添加一个渠道 用于查看忽略文件中的效果
+//              manifestPlaceholders = [CHANNEL_NAME: "401"]
+//          }
+          yingyongbao_p{//添加一个渠道 用于查看忽略文件中的效果
+              manifestPlaceholders = [CHANNEL_NAME: "401"]
+          }
     }
 }
 
@@ -235,6 +266,11 @@ dependencies {
     //kotlin
     compile kotlin7
     //test frameWork
+    //不知道这个是干嘛用的  删掉之后在AndroidTest就报错(引用报错) 加上之后就好了
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
     testCompile junit
     debugCompile logutils_debug
     releaseCompile logutils_release
@@ -259,6 +295,9 @@ dependencies {
 //    compile gt
 //    compile gt_jar
 //    compile gt_json
+
+    //添加侧滑的三方库
+    compile 'com.r0adkll:slidableactivity:2.0.5'
 }
 repositories {
     mavenCentral()
@@ -275,4 +314,10 @@ def appendVersionName(variant, defaultConfig) {
         def fileName = file.name.replace("-release.apk", "-" + defaultConfig.versionName + "-release.apk")
         output.packageApplication.outputFile = new File(file.parent, fileName)
     }
+}
+
+def buildTime() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    df.setTimeZone(TimeZone.getDefault())
+    return df.format(new Date())
 }

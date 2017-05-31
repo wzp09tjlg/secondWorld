@@ -13,14 +13,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import com.apkfuns.logutils.LogUtils;
 import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.databinding.DialogProgressBinding;
 import com.example.wuzp.secondworld.network.ApiCallback;
 import com.example.wuzp.secondworld.network.ApiStores;
 import com.example.wuzp.secondworld.network.AppClient;
 import com.example.wuzp.secondworld.network.parse.HttpBase_j;
+import com.example.wuzp.secondworld.utils.AppUtil;
 import com.example.wuzp.secondworld.utils.Night;
 import com.example.wuzp.secondworld.view.widget.CommonDialog;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrConfig;
+import com.r0adkll.slidr.model.SlidrListener;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.analytics.MobclickAgent.EScenarioType;
 
@@ -44,9 +49,15 @@ public class BaseActivity extends FragmentActivity implements Night.NightModeCha
     private Dialog mProgressDialog;
     protected onKeyDownListener mOnKeyDownListener = null;
 
+    private boolean isCanSwipeBack = true;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (isCanSwipeBack) {
+            configSlidr();
+        }
+
         Night.getInstance().addListener(this);
         Night.setWindowStatusBarColor(this);
 
@@ -56,6 +67,9 @@ public class BaseActivity extends FragmentActivity implements Night.NightModeCha
         // 然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
         MobclickAgent.openActivityDurationTrack(false);
         MobclickAgent.setScenarioType(this, EScenarioType.E_UM_NORMAL);
+
+        //侧滑删除的设置
+
     }
 
     @Override
@@ -77,6 +91,41 @@ public class BaseActivity extends FragmentActivity implements Night.NightModeCha
         super.onDestroy();
         onUnsubscribe();
         Night.getInstance().removeListener(this);
+    }
+
+    private void configSlidr(){
+        SlidrConfig config = new SlidrConfig.Builder()
+                .edge(true)
+                .listener(new SlidrListener() {
+                    @Override
+                    public void onSlideStateChanged(int state) {
+                        LogUtils.
+                                e("state:" + state);
+                    }
+
+                    @Override
+                    public void onSlideChange(float percent) {
+                        onSlidr(percent);
+                    }
+
+                    @Override
+                    public void onSlideOpened() {
+                        LogUtils.e("slideOpend");
+                    }
+
+                    @Override
+                    public void onSlideClosed() {
+                        LogUtils.e("slideClosed");
+                    }
+                })
+                .scrimColor(android.R.color.transparent)
+                .build();
+        Slidr.attach(this, config);
+    }
+
+    protected void onSlidr(float percent) {
+
+        AppUtil.hideSoftInput(getWindow());
     }
 
     protected final <T> void addSubscription(Flowable flowable, final ApiCallback<T> apiCallback) {

@@ -63,7 +63,7 @@ public class Net {
 
         String paramStr = CommonHelper.paramstoString(mSortMap, false);
 
-        String md5Sign = MD5Helper.encodeToLowerCase(paramStr);
+        String md5Sign = MD5Helper.getMd5(paramStr);
         return md5Sign;
     }
 

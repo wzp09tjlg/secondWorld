@@ -18,6 +18,9 @@ jar的加入及使用用途说明
    使用支持库
    nineoldandroids-2.4.0.jar
  
-    
-   
+   集成百度语音的jar
+   com.baidu.tts_2.3.0.jar     
+
+   三方提供的循环查询自定文件夹中的特定文件 
+   commons-io-2.2.jar
  

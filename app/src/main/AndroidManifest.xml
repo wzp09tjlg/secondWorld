@@ -44,6 +44,13 @@
     <!-- 全局的异常奔溃处理  -->
     <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
+    <!-- 百度语音添加权限 -->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!-- 本地文件查找添加权限 -->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+
     <!-- 个推自定义的权限 -->
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
@@ -69,6 +76,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".view.dialog.AddAlbumActivity"
             android:screenOrientation="portrait"
@@ -116,6 +124,61 @@
             android:name=".view.gt.GtActivity"
             android:screenOrientation="portrait" />
 
+=======
+        <activity android:name=".view.dialog.AddAlbumActivity"
+            android:theme="@style/DialogTransparent"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.huasheng.HuashengActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.huasheng.OtherHsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.huasheng.recyclerView.RecyclerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.permission.PerimissionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.wuzp.secondworld.view.databinding.DataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.datalist.DataListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.diff.DiffActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.glide.GlideActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.task.TaskActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.loader.LoaderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.cursorloader.CursorloaderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.nettyClient.NettyClientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.gif.GifActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.gt.GtActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.tts.TtsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.clientPage.ClientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.clientPage.TodoDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.loaderclient.LoaderClientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.loaderclient.LoaderDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.search.SearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.refresh.RefreshActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.beisier.BesierActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.matrix.MatrixActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.matrix.TestImgActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.pageView.PageViewActivity"
+            android:screenOrientation="portrait"/>
+>>>>>>> dev
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
@@ -196,6 +259,19 @@
         <!-- *************************************************************** -->
         <!-- **************************   ContentProvider    **************-->
         <!-- *************************************************************** -->
+        <provider
+            android:name="com.example.wuzp.secondworld.view.clientPage.TodoProvider"
+            android:authorities="com.bobomee.android.todo"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
+
+        <provider
+            android:name="com.example.wuzp.secondworld.view.loaderclient.LoadContentProvider"
+            android:authorities="com.example.wuzp.secondworld.view.loaderclient"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
         <!-- 个推 -->
         <provider
             android:name="com.igexin.download.DownloadProvider"

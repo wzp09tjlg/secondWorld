@@ -165,7 +165,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         try {
             SimpleDateFormat sDateFormat = new SimpleDateFormat(
                     "yyyy-MM-dd HH:mm:ss");
+<<<<<<< HEAD
             String date = sDateFormat.format(new java.util.Date());
+=======
+            String date = sDateFormat.format(new Date());
+>>>>>>> dev
             sb.append("\r\n" + date + "\n");
             for (Map.Entry<String, String> entry : infos.entrySet()) {
                 String key = entry.getKey();

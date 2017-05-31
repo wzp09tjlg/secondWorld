@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -22,10 +21,11 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.Display;
+import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
-import com.apkfuns.logutils.LogUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestListener;
@@ -63,7 +63,9 @@ public class AppUtil {
 
     }
 
-    //获取应用的VersionCode
+    /**
+     * 获取应用的VersionCode
+     */
     public static int getVersionCode(Context context) {
         try {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
@@ -87,31 +89,41 @@ public class AppUtil {
         return "";
     }
 
-    //获取应用的渠道名字
+    /**
+     * 获取应用的渠道名字
+     */
     public static String getChannelName(Context context) {
-        String value = "HuaSheng";
-        try {
-            ApplicationInfo ainfo = context.getPackageManager()
-                    .getApplicationInfo(context.getPackageName()
-                            , PackageManager.GET_META_DATA);
-            value = ainfo.metaData.getString("UMENG_CHANNEL");
-        } catch (Exception e) {
-        }
-        return value;
+        return Tool.getChannel(context);
     }
 
-    //实现从dip到px的转换
+    /**
+     * 实现从dip到px的转换
+     *
+     * @param context
+     * @param dps
+     * @return
+     */
     public static int dpToPx(Context context, int dps) {
-        return Math.round(context.getResources().getDisplayMetrics().density * (float) dps);
+        return Math.round(context.getApplicationContext().getResources().getDisplayMetrics().density * (float) dps);
     }
 
     public static int pxToDp(Context context, float px) {
-        return Math.round(px / context.getResources().getDisplayMetrics().density);
+        return Math.round(px / context.getApplicationContext().getResources().getDisplayMetrics().density);
     }
 
     public static Display screenSize() {
         WindowManager wm = (WindowManager) HApplication.getContext().getSystemService(Context.WINDOW_SERVICE);
         return wm.getDefaultDisplay();
+    }
+
+    public static void setFloatableKeyBoard(Activity activity){
+        CommonHelper.setFloatableKeyBoard(activity);
+    }
+    public static void hideSoftInput(Window window) {
+        // 页面stop时隐藏软键盘
+        InputMethodManager imm = (InputMethodManager) window.getDecorView().getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm.isActive())
+            imm.hideSoftInputFromWindow(window.getDecorView().getWindowToken(), 0);
     }
 
 
@@ -317,7 +329,6 @@ public class AppUtil {
                 bitmap = Bitmap.createBitmap(tempBitmap, 0, 0,
                         dwidth, height, matrix, true);
             } catch (Exception e) {
-                LogUtils.e("加入连载,string转换bitmap异常.");
             } finally {
                 return bitmap;
             }

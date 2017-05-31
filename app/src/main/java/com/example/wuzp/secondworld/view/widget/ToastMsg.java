@@ -30,6 +30,7 @@ public class ToastMsg {
     private ToastMsg() {
     }
 
+    @SuppressWarnings("all")
     public void show(String text) {
         if (TextUtils.isEmpty(text)) return;
         if (toast == null) {
@@ -43,10 +44,6 @@ public class ToastMsg {
             toast = new Toast(HApplication.getContext());
             toast.setView(v);
         } else {
-            if (mTempStr.equals(text)) {
-                mTempStr = "";
-                return;
-            }
             toast.cancel();
             LayoutInflater inflate = (LayoutInflater)
                     HApplication.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

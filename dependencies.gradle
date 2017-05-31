@@ -63,6 +63,8 @@ ext {
 //    gt_jar = files('libs/GetuiSDK2.10.2.0.jar')
 //    gt_json = files('libs/json_simple-1.1.jar')
 
+
+
     // google
     support_dependencies = [design            : "com.android.support:design:${supportLibrary}",
                             recyclerView      : "com.android.support:recyclerview-v7:${supportLibrary}",

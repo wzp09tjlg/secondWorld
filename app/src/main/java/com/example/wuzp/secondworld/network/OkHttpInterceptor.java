@@ -91,7 +91,7 @@ public class OkHttpInterceptor implements Interceptor {
         }
         sortMap.putAll(Net.newHashMap());
         String paramStr = CommonHelper.paramstoString(sortMap, false);
-        String md5Sign = MD5Helper.encodeToLowerCase(paramStr);
+        String md5Sign = MD5Helper.getMd5(paramStr);
         builder.add("sign", md5Sign);
         // 返回body
         return builder.build();

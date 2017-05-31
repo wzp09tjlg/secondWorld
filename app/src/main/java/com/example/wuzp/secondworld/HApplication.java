@@ -47,8 +47,11 @@ public class HApplication extends Application {
         if (handler == null) {
             handler = new GTPushHandler();
         }
+<<<<<<< HEAD
         //注册全局的监听器
         registerActivityLifeCallbacks();
+=======
+>>>>>>> dev
         //CrashHandler  注册应用的处理异常 (需要些本地的权限)
         Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(gContext));
     }
