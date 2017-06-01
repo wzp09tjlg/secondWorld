@@ -48,6 +48,12 @@
     <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 
+    <!-- 设置壁纸的权限 及运行的硬件要求 -->
+    <!--<uses-permission android:name="android.permission.CAMERA"/>-->
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <!-- 个推自定义的权限 -->
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
@@ -125,6 +131,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.pageView.PageViewActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.wallpaper.WallPaperActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.livepaper.LivePaperActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
@@ -145,6 +155,34 @@
         <!-- *************************************************************** -->
         <!-- **************************   Service    **************-->
         <!-- *************************************************************** -->
+        <!-- 配置实时壁纸Service -->
+        <service android:label="@string/app_name"
+            android:name=".view.wallpaper.WallPaperService"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <!-- 为实时壁纸配置intent-filter -->
+            <!-- 在设置壁纸的时候 可以看到这个filter 的数据-->
+            <intent-filter>
+                <action  android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+
+        <service android:name=".view.livepaper.LivePaperService"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:process=":wallpaper">
+            <!-- 这里也可以不用新起一个进程(新起一个进程之后 貌似在应用启动之后 就会启动这个进程(看日志是会启动的)) -->
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
 
         <!-- 个推Service -->
         <!-- 配置SDK核心服务 -->

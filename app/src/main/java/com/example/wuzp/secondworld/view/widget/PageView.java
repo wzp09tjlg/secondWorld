@@ -26,7 +26,6 @@ import java.util.List;
  */
 /**
  * 曲线View
- *
  * @version 1.0.0
  * @since 2014/12/28
  */
