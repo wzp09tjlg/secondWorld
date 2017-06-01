@@ -48,6 +48,6 @@ public class LivePaperActivity extends BindingActivity<ActivityLivepaperBinding,
     public void setVideoToWallPaper() {
         String name = getApplicationContext().getPackageName();
         Log.e("wzp","name:" + name);
-        LivePaperService.setToWallPaper(this);
+        LivePaperService.setToWallPaper(getApplicationContext());
     }
 }

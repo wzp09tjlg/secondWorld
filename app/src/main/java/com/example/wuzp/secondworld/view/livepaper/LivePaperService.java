@@ -39,6 +39,7 @@ public class LivePaperService extends WallpaperService {
 
     public static void setToWallPaper(Context context) {
         final Intent intent = new Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
                 new ComponentName(context, LivePaperService.class));
         Log.e("wzp","------------------------------------------111");
