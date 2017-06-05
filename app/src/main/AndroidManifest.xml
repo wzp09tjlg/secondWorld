@@ -135,6 +135,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.livepaper.LivePaperActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.lock.LockActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.cipher.CipherActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

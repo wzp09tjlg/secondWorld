@@ -227,6 +227,16 @@ android {
               manifestPlaceholders = [CHANNEL_NAME: "401"]
           }
     }
+
+    // 不同包名 还可以打不同包名的应用？这个真是厉害啊 待会尝试一下
+//    productFlavors {
+//        google {
+//            packageName = 'com.sina.book.play'
+//        }
+//        baidu {
+//            packageName = 'com.sina.book.baidu'
+//        }
+//    }
 }
 
 dependencies {

@@ -42,7 +42,6 @@ public class LivePaperService extends WallpaperService {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
                 new ComponentName(context, LivePaperService.class));
-        Log.e("wzp","------------------------------------------111");
         try{
             context.startActivity(intent);
         }catch (Exception e){
