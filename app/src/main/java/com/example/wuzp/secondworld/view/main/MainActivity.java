@@ -2,7 +2,6 @@ package com.example.wuzp.secondworld.view.main;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +13,9 @@ import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
-import com.example.wuzp.secondworld.view.cipher.CipherActivity;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
+import com.example.wuzp.secondworld.view.leak.LeakActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
@@ -129,7 +128,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, WallPaperActivity.class);
         //ActivityUtil.jumpActivity(this, LivePaperActivity.class);
         //ActivityUtil.jumpActivity(this, LockActivity.class);
-        ActivityUtil.jumpActivity(this, CipherActivity.class);
+        //ActivityUtil.jumpActivity(this, CipherActivity.class);
+        ActivityUtil.jumpActivity(this, LeakActivity.class);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if(builder != null){
+       /* if(builder != null){
             builder = null;
         }
         builder = new AlertDialog.Builder(mContext);
@@ -245,6 +245,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(DialogInterface dialog, int whichButton) {
             }
         });
-        builder.show();
+        builder.show();*/
     }
 }

@@ -229,14 +229,7 @@ android {
     }
 
     // 不同包名 还可以打不同包名的应用？这个真是厉害啊 待会尝试一下
-//    productFlavors {
-//        google {
-//            packageName = 'com.sina.book.play'
-//        }
-//        baidu {
-//            packageName = 'com.sina.book.baidu'
-//        }
-//    }
+    // 不支持 packageName ，这个属性不是 gradle的指令 所以不能在这里使用
 }
 
 dependencies {

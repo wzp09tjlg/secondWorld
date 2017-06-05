@@ -139,6 +139,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.cipher.CipherActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.leak.LeakActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

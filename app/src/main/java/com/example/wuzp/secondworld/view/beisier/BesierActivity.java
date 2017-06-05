@@ -1,6 +1,8 @@
 package com.example.wuzp.secondworld.view.beisier;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -60,5 +62,10 @@ public class BesierActivity extends AppCompatActivity implements View.OnClickLis
 
     private <T> T $(int id){
         return (T)findViewById(id);
+    }
+
+    private void test(){ //打开系统打开系统的设置页面
+        Intent intent = new Intent(Settings.ACTION_DISPLAY_SETTINGS);
+        startActivity(intent);
     }
 }
