@@ -290,7 +290,7 @@ dependencies {
     compile s_sdk
     // u_meng 统计相关的东西
     compile u_meng
-    // netty 新的一种网络连接
+    // netty 新的一种网络连接 （基于Java的nio实现的网络框架）
     compile netty
     // 支持gif的一种三方库
     compile gif

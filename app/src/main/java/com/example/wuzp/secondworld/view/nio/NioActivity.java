@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-
 import com.example.wuzp.secondworld.R;
-
 import java.io.File;
 import java.util.List;
 
@@ -18,6 +16,7 @@ import java.util.List;
  * 这里希望使用 Java4 中新的技术 nio (new input or output)
  * Path Paths Files WriterService ~ (还有一个东西记不住名字了)
  * 想想看看 能不能使用这些新的技术来加快数据的访问速度
+ * 在安卓上不能使用nio的框架 不知道为什么
  */
 public class NioActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnScan;
@@ -64,7 +63,7 @@ public class NioActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     private void doTestNio(){
-       /* Path rootPath = Paths.get("data");
+      /*  Path rootPath = Paths.get("data");
         String fileToFind = File.separator + "README.txt";
 
         try {
