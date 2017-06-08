@@ -48,8 +48,17 @@ public class XmlActivity extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()){
             case R.id.btn_parse:
                 //parseXml();
-               List<studentBean> list = pullParseXml();
-                Log.e("wzp","size:" + list.size());
+               //List<studentBean> list = pullParseXml();
+                //Log.e("wzp","size:" + list.size());
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        List<studentBean> list = doPullParseXml();
+                        Log.e("wzp","size:" + list.size());
+                    }
+                }).start();
+                break;
+            default:
                 break;
         }
     }
@@ -155,4 +164,72 @@ public class XmlActivity extends AppCompatActivity implements View.OnClickListen
         }
         return lists;
     }
+
+    private List<studentBean> doPullParseXml(){
+        List<studentBean> nodeBeanList = new ArrayList<>();//java7 中的泛型推断
+        studentBean tempBean = null;
+       try{
+           XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+           XmlPullParser pullParser = factory.newPullParser();
+           AssetManager assetManager = getAssets();
+           InputStream inputStream = assetManager.open("students.xml");
+
+           pullParser.setInput(inputStream,"UTF-8");
+
+           int eventType = pullParser.getEventType();
+           while(eventType != XmlPullParser.END_DOCUMENT){
+               switch (eventType){
+                   case XmlPullParser.START_DOCUMENT:
+                       break;
+                   case XmlPullParser.START_TAG:
+                       String tagName = pullParser.getName();
+                       switch (tagName){
+                           case "student":
+                               tempBean = new studentBean();
+                               tempBean.setId(pullParser.getAttributeValue(0));
+                               tempBean.setGroup(pullParser.getAttributeName(1));
+                               break;
+                           case "name":
+                               if(tempBean != null)
+                                   tempBean.setName(pullParser.getText());
+                               break;
+                           case "sex":
+                               if(tempBean != null)
+                                   tempBean.setSex(pullParser.getText());
+                               break;
+                           case "age":
+                               if(tempBean != null)
+                                   tempBean.setAge(pullParser.getText());
+                               break;
+                           case "email":
+                               if(tempBean != null)
+                                   tempBean.setEmail(pullParser.getText());
+                               break;
+                           case "birthday":
+                               if(tempBean != null)
+                                   tempBean.setBirthday(pullParser.getText());
+                               break;
+                           case "memo":
+                               if(tempBean != null)
+                                   tempBean.setMemo(pullParser.getText());
+                               break;
+                       }
+                       break;
+                   case XmlPullParser.END_TAG:
+                       String name = pullParser.getName();
+                       switch(name){
+                           case "student":
+                               if(tempBean != null)
+                               nodeBeanList.add(tempBean);
+                               break;
+                       }
+                       break;
+               }
+
+               eventType =  eventType=pullParser.next();///调用的是next的方法 来获取当前的状态
+           }
+       }catch (Exception e){}
+        return  nodeBeanList;
+    }
+
 }
