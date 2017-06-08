@@ -15,12 +15,12 @@ import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
-import com.example.wuzp.secondworld.view.leak.LeakActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionsMenu;
+import com.example.wuzp.secondworld.view.xml.XmlActivity;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initView();
         doTestMethod();
+        String channelId = "";
+        MobclickAgent. startWithConfigure(new MobclickAgent.UMAnalyticsConfig(getApplicationContext(),"appkey",channelId));
     }
 
     @Override
@@ -129,7 +131,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, LivePaperActivity.class);
         //ActivityUtil.jumpActivity(this, LockActivity.class);
         //ActivityUtil.jumpActivity(this, CipherActivity.class);
-        ActivityUtil.jumpActivity(this, LeakActivity.class);
+        //ActivityUtil.jumpActivity(this, LeakActivity.class);
+        //ActivityUtil.jumpActivity(this, NioActivity.class);
+        ActivityUtil.jumpActivity(this, XmlActivity.class);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override

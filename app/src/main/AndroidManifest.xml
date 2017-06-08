@@ -53,7 +53,9 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
+    <!-- 访问文件路径需要的权限 (读权限和写权限)-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
     <!-- 个推自定义的权限 -->
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
@@ -140,6 +142,10 @@
         <activity android:name=".view.cipher.CipherActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.leak.LeakActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.nio.NioActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.xml.XmlActivity"
             android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity

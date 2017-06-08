@@ -3,6 +3,13 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <com.example.wuzp.secondworld.view.widget.RotateImageView
+            android:id="@+id/img_rotate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_back"
+            android:scaleType="center"/>
+
         <EditText
             android:id="@+id/edt_content"
             android:layout_width="match_parent"
