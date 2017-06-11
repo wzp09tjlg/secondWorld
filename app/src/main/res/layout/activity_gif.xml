@@ -2,14 +2,26 @@
 <layout >
   <RelativeLayout
       xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:gravity="center_horizontal">
+
+      <Button
+          android:id="@+id/btn_load"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:text="load"/>
+
+
+      <!-- 竟然是没有设置gif绘制的次数的 真是差评，尽然没有方法可以控制 -->
       <pl.droidsonroids.gif.GifImageView
           android:id="@+id/v_gif"
           android:layout_width="200dp"
           android:layout_height="200dp"
-          android:scaleType="fitXY"/>
+          android:scaleType="fitXY"
+          android:layout_below="@+id/btn_load" />
 
       <pl.droidsonroids.gif.GifImageButton
           android:id="@+id/btn_gif"

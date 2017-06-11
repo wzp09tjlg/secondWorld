@@ -20,7 +20,7 @@ public class GifViewWrapper extends BaseViewWrapper<ActivityGifBinding> {
     public void addBinding(@NonNull ActivityGifBinding binding) {
         super.addBinding(binding);
         mContext = binding.getRoot().getContext();
-        initView();
+       // initView();
     }
 
     private void initView(){

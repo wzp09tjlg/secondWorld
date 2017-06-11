@@ -17,6 +17,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
 /**
  * Created by wuzp on 2017/6/7.
  * 使用sax 解析xml
@@ -72,12 +75,12 @@ public class XmlActivity extends AppCompatActivity implements View.OnClickListen
             InputStreamReader isReader = new InputStreamReader(inputStream);
             JsonReader reader = new JsonReader(isReader);*/
             //这是解析assete中xml的解析方法
-            /*AssetManager assetManager = getResources().getAssets();
+            AssetManager assetManager = getResources().getAssets();
             InputStream inputStream = assetManager.open("nodes.xml");
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
             XmlSaxHandler dh = new XmlSaxHandler(callback);//解析结束后存入数据库
-            parser.parse(inputStream, dh);*/
+            parser.parse(inputStream, dh);
 
             //这是使用pull的方式来解析xml （晚上继续学习pull解析xml）
 
@@ -226,7 +229,7 @@ public class XmlActivity extends AppCompatActivity implements View.OnClickListen
                        break;
                }
 
-               eventType =  eventType=pullParser.next();///调用的是next的方法 来获取当前的状态
+            eventType=pullParser.next();///调用的是next的方法 来获取当前的状态
            }
        }catch (Exception e){}
         return  nodeBeanList;
