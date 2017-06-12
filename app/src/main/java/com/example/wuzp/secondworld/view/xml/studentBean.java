@@ -3,7 +3,6 @@ package com.example.wuzp.secondworld.view.xml;
 /**
  * Created by wuzp on 2017/6/8.
  */
-
 public class studentBean {
     public String id;
     public String group;
