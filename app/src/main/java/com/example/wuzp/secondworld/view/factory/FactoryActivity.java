@@ -2,6 +2,7 @@ package com.example.wuzp.secondworld.view.factory;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,6 +21,8 @@ public class FactoryActivity extends BaseActivity implements ChangeCallback, Vie
     private ChangeFactory factory;
     private ChangeHelper helper;
 
+    private Object object;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,11 +34,17 @@ public class FactoryActivity extends BaseActivity implements ChangeCallback, Vie
     private void initView(){
         btnChange = (Button)findViewById(R.id.btn_change);
 
-        initData();
+        try{
+            initData();
+        }catch (Exception e){}
     }
 
-    private void initData(){
-
+    @SuppressWarnings("all")
+    private void initData() throws Exception {
+        object = new Object();//这里定义了 自己的Object 类，在引用时 声明了object 是自己的定义的类
+        String classLoader = object.getClass().getClassLoader().getClass().getName();
+        object.show();
+        Log.e("wzp","classloader: " + classLoader);
     }
 
     @Override
