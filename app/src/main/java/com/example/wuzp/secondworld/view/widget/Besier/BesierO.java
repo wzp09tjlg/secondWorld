@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Point;
 import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -19,7 +20,8 @@ public class BesierO extends View {
     private Paint mPaint;
     private int centerX, centerY;
 
-    private PointF start, end, control;
+    private PointF start, end, control;//使用的是浮点数表示的区域
+    private Point point;//使用的是整数表示的区域
 
     public BesierO(Context context) {
         super(context);

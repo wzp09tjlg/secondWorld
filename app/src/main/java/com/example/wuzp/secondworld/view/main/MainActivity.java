@@ -13,8 +13,8 @@ import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
+import com.example.wuzp.secondworld.view.beisier.BesierActivity;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
-import com.example.wuzp.secondworld.view.factory.FactoryActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, ClientActivity.class);
         //ActivityUtil.jumpActivity(this, LoaderClientActivity.class);
         //ActivityUtil.jumpActivity(this, SearchActivity.class);
-        //ActivityUtil.jumpActivity(this, BesierActivity.class);
+        ActivityUtil.jumpActivity(this, BesierActivity.class);
         //ActivityUtil.jumpActivity(this, MatrixActivity.class);
         //ActivityUtil.jumpActivity(this, TestImgActivity.class);
         //ActivityUtil.jumpActivity(this, PageViewActivity.class);
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, LeakActivity.class);
         //ActivityUtil.jumpActivity(this, NioActivity.class);
         //ActivityUtil.jumpActivity(this, XmlActivity.class);
-        ActivityUtil.jumpActivity(this, FactoryActivity.class);
+//        ActivityUtil.jumpActivity(this, FactoryActivity.class);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override

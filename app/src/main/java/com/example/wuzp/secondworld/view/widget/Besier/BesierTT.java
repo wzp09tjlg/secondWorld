@@ -167,7 +167,10 @@ public class BesierTT extends View {
         canvas.save();                      // 绘制做坐标系
 
         canvas.translate(mCenterX, mCenterY); // 将坐标系移动到画布中央
-        canvas.scale(1,-1);                 // 翻转Y轴
+        canvas.scale(1,-1);                 // 翻转Y轴 画一个正向的桃心
+        //canvas.rotate(90); //针对画布做旋转 逆时针 (大于0的数 是逆时针小于0的数是顺时针)
+        //canvas.translate(100,200);//做平移
+
 
         Paint fuzhuPaint = new Paint();
         fuzhuPaint.setColor(Color.RED);

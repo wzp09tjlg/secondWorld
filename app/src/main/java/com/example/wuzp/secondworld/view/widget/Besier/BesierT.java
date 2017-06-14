@@ -24,7 +24,6 @@ public class BesierT extends View {
 
     public BesierT(Context context) {
         this(context, null);
-
     }
 
     public BesierT(Context context, AttributeSet attrs) {
