@@ -300,7 +300,12 @@ dependencies {
 //    compile gt_json
 
     //添加侧滑的三方库
-    compile 'com.r0adkll:slidableactivity:2.0.5'
+//    compile 'com.r0adkll:slidableactivity:2.0.5'
+
+    //slider
+//    compile slider
+
+    compile 'com.r0adkll:slidableactivity:2.0.3'
 }
 repositories {
     mavenCentral()

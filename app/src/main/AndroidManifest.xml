@@ -149,6 +149,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.factory.FactoryActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.slidr.SlideActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.slidr.SlideOtherActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

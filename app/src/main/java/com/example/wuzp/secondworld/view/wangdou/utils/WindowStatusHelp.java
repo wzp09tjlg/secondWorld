@@ -8,8 +8,8 @@ import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.sina.book.base.BaseApp;
-import com.sina.book.utils.SRPreferences;
+import com.example.wuzp.secondworld.HApplication;
+
 
 /**
  * 页面亮度帮助类
@@ -125,7 +125,7 @@ public class WindowStatusHelp {
         try {
             if (save){
                 SRPreferences.getInstance().setInt(SRPreferences.READ_LIGHT_TIME_SYSTER,
-                        Settings.System.getInt(BaseApp.gContext.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT));
+                        Settings.System.getInt(HApplication.gContext.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT));
             }else {
                 if (getWakeLock().isHeld()) {
                     mWakeLock.release();
@@ -178,7 +178,7 @@ public class WindowStatusHelp {
         if (mWakeLock == null){
             synchronized (WindowStatusHelp.class){
                 if (mWakeLock == null){
-                    PowerManager pm = (PowerManager) BaseApp.gContext.getSystemService(Context.POWER_SERVICE);
+                    PowerManager pm = (PowerManager) HApplication.gContext.getSystemService(Context.POWER_SERVICE);
                     mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, wl_tag);
                     mWakeLock.setReferenceCounted(false);
                 }
