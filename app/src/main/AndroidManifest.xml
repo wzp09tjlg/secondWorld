@@ -153,6 +153,17 @@
             android:screenOrientation="portrait" />
         <activity android:name=".view.slidr.SlideOtherActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.itemAnimation.ItemAnimationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.luanchmode.LuanchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.luanchmode.TaskOneActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.luanchmode.TaskOneOneActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.luanchmode.TaskTwoActvity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.wuzp.secondworld.R;
@@ -29,6 +30,7 @@ public class CursorloaderActivity extends BindingActivity<ActivityCursorloaderBi
     RecyclerCursorLoaderAdapter adapter1;
 
     @Override
+    @SuppressWarnings("all")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewWrapper.addBinding(binding);
@@ -41,6 +43,28 @@ public class CursorloaderActivity extends BindingActivity<ActivityCursorloaderBi
         /*binding.list.setAdapter(adapter);*/
         binding.recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         binding.recycler.setAdapter(adapter1);
+
+        /**
+         * SCROLLBARS_INSIDE_OVERLAY,
+         SCROLLBARS_INSIDE_INSET,
+         SCROLLBARS_OUTSIDE_OVERLAY,
+         SCROLLBARS_OUTSIDE_INSET
+
+         @see #SCROLLBARS_INSIDE_OVERLAY
+          * @see #SCROLLBARS_INSIDE_INSET
+         * @see #SCROLLBARS_OUTSIDE_OVERLAY
+         * @see #SCROLLBARS_OUTSIDE_INSET
+         * */
+        //计算recyclerView上所有的item的高度是多少
+        int sumHeight = 0;
+    }
+
+    public int getScollYDistance(RecyclerView recyclerView) {
+        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        int position = layoutManager.findFirstVisibleItemPosition();
+        View firstVisiableChildView = layoutManager.findViewByPosition(position);
+        int itemHeight = firstVisiableChildView.getHeight();
+        return (position) * itemHeight - firstVisiableChildView.getTop();
     }
 
     @Override

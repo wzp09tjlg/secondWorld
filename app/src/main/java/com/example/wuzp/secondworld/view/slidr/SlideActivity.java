@@ -1,12 +1,13 @@
 package com.example.wuzp.secondworld.view.slidr;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +20,7 @@ import com.r0adkll.slidr.model.SlidrPosition;
  * Created by wuzp on 2017/6/14.
  */
 public class SlideActivity extends AppCompatActivity {
+    private static final String TAG = SlideActivity.class.getSimpleName();
    private Button btnOther;
     SlidrConfig mSlidrConfig;
     SlidrConfig.Builder mBuilder;
@@ -32,6 +34,37 @@ public class SlideActivity extends AppCompatActivity {
         int secondary = getResources().getColor(R.color.primaryLight);
         Slidr.attach(this, primary, secondary);
         initView();
+        Log.e(TAG,"onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(TAG,"onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG,"onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG,"onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(TAG,"onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG,"onDestroy");
     }
 
     private void initView(){
@@ -41,13 +74,9 @@ public class SlideActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SlideActivity.this,SlideOtherActivity.class);
                 startActivity(intent);
-                Handler handler = new Handler();
-                Message msg = null;
-                handler.sendMessage(msg);//看loop中 处理消息时 当消息时是null 就直接退出
             }
         });
     }
-
 
     private void initSlider(){
         int primary = getResources().getColor(R.color.primaryDark);
@@ -75,4 +104,10 @@ public class SlideActivity extends AppCompatActivity {
          * */
     }
 
+
+    private String getRunningActivityName(){
+        ActivityManager activityManager=(ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        String runningActivity=activityManager.getRunningTasks(1).get(0).topActivity.getClassName();
+        return runningActivity;
+    }
 }

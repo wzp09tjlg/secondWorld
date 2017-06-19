@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
+
+    <FrameLayout
+        android:layout_width="88dp"
+        android:layout_height="116dp">
+        <RelativeLayout
+            android:id="@+id/layout_item"
+            android:layout_width="88dp"
+            android:layout_height="116dp">
+            <ImageView
+                android:id="@+id/img_cover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_defualt_book"/>
+        </RelativeLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
+        android:text="遇见新天个遇见新天个遇"
+        android:textSize="11dp"/>
+</LinearLayout>

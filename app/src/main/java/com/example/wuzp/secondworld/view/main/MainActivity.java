@@ -16,7 +16,7 @@ import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
-import com.example.wuzp.secondworld.view.slidr.SlideActivity;
+import com.example.wuzp.secondworld.view.luanchmode.LuanchActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
@@ -135,7 +135,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, NioActivity.class);
         //ActivityUtil.jumpActivity(this, XmlActivity.class);
 //        ActivityUtil.jumpActivity(this, FactoryActivity.class);
-        ActivityUtil.jumpActivity(this, SlideActivity.class);
+        //ActivityUtil.jumpActivity(this, SlideActivity.class);
+        //ActivityUtil.jumpActivity(this, CursorloaderActivity.class);
+        //ActivityUtil.jumpActivity(this, ItemAnimationActivity.class);
+        ActivityUtil.jumpActivity(this, LuanchActivity.class);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override

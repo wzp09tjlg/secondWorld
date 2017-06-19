@@ -35,6 +35,7 @@ public class RecyclerActivity extends BindingActivity<ActivityRecyclerBinding,Re
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewWrapper.addBinding(binding);
+        viewWrapper.addClickListener(this);
         mvpPresenter.start(1);
     }
 
