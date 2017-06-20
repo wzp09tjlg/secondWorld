@@ -164,6 +164,14 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.luanchmode.TaskTwoActvity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.flag.FlagBaseActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.flag.FlagOneActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.flag.FlagTwoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.flag.FlagThreeActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

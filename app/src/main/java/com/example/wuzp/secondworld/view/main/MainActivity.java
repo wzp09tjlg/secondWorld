@@ -2,6 +2,7 @@ package com.example.wuzp.secondworld.view.main;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +15,9 @@ import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
+import com.example.wuzp.secondworld.view.flag.FlagBaseActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
-import com.example.wuzp.secondworld.view.luanchmode.LuanchActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
@@ -138,7 +139,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, SlideActivity.class);
         //ActivityUtil.jumpActivity(this, CursorloaderActivity.class);
         //ActivityUtil.jumpActivity(this, ItemAnimationActivity.class);
-        ActivityUtil.jumpActivity(this, LuanchActivity.class);
+        //ActivityUtil.jumpActivity(this, LuanchActivity.class);
+        //ActivityUtil.jumpActivity(this, FlagBaseActivity.class);
+        Intent intent = new Intent(this, FlagBaseActivity.class);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+        startActivity(intent);
 
         floatingMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override
