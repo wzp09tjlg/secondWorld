@@ -150,9 +150,11 @@
         <activity android:name=".view.factory.FactoryActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.slidr.SlideActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".view.slidr.SlideOtherActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".view.itemAnimation.ItemAnimationActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.luanchmode.LuanchActivity"

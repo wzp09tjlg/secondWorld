@@ -30,9 +30,9 @@ public class SlideActivity extends AppCompatActivity {
         initSlider();//先设置配置 再在各个activity中添加处理
 
         setContentView(R.layout.activity_slide);
-        int primary = getResources().getColor(R.color.primaryDark);
-        int secondary = getResources().getColor(R.color.primaryLight);
-        Slidr.attach(this, primary, secondary);
+        int primary = getResources().getColor(R.color.green);
+        int secondary = getResources().getColor(R.color.blue);
+        Slidr.attach(this);//, primary, secondary);
         initView();
         Log.e(TAG,"onCreate");
     }
@@ -79,8 +79,8 @@ public class SlideActivity extends AppCompatActivity {
     }
 
     private void initSlider(){
-        int primary = getResources().getColor(R.color.primaryDark);
-        int secondary = getResources().getColor(R.color.accent);
+        int primary = getResources().getColor(R.color.red);
+        int secondary = getResources().getColor(R.color.yellow);
         mBuilder = new SlidrConfig.Builder().primaryColor(primary)
                 .secondaryColor(secondary)
                 .scrimColor(Color.BLACK)

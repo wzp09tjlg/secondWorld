@@ -611,6 +611,7 @@ public class PageView extends View {
 
     /**
      * 计算滑动参数变化
+     * 这里好low啊，因为存在scroller的方式来计算滑动之后的坐标计算 ，但是现在这里却是手动的计算 所以会比较卡
      */
     private void slide() {
 		/*
