@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
         <!-- 可以设置window的执行动画 因为每一个activity及fragment 都是持有一个window的 所以 针对window做处理动画 是可以控制activity及fragment的入和出 -->
         <!-- 设置windowStyle时 有两种方式 一种是activityAnimation，一种是windowAnimation -->
         <!-- 当activity 设置成  android:windowIsTranslucent=true时，给Activity设置ActivityAnimation会不起作用，只能设置windowAnimation -->

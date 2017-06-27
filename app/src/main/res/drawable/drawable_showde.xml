@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 每层的item都会是一个drawable 可以通过设置每层的drawable的距离 来进行组合得到不同的drawable-->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+
+                android:angle="0"
+                android:endColor="#0000ff"
+                android:startColor="#00ff00" />
+        </shape>
+    </item>
+    <item android:bottom="8dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#ff0000" />
+        </shape>
+    </item>
+</layer-list>

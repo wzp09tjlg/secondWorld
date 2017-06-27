@@ -16,7 +16,7 @@ import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
-import com.example.wuzp.secondworld.view.pageView.PageViewActivity;
+import com.example.wuzp.secondworld.view.muchItem.MuchItemActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, BesierActivity.class);
         //ActivityUtil.jumpActivity(this, MatrixActivity.class);
         //ActivityUtil.jumpActivity(this, TestImgActivity.class);
-        ActivityUtil.jumpActivity(this, PageViewActivity.class);
+        //ActivityUtil.jumpActivity(this, PageViewActivity.class);
         //ActivityUtil.jumpActivity(this, WallPaperActivity.class);
         //ActivityUtil.jumpActivity(this, LivePaperActivity.class);
         //ActivityUtil.jumpActivity(this, LockActivity.class);
@@ -140,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, ItemAnimationActivity.class);
         //ActivityUtil.jumpActivity(this, LuanchActivity.class);
         //ActivityUtil.jumpActivity(this, FlagBaseActivity.class);
+        //ActivityUtil.jumpActivity(this, HandlerActivity.class);
+        //ActivityUtil.jumpActivity(this, DbActivity.class);
+        ActivityUtil.jumpActivity(this, MuchItemActivity.class);
 
 
         //Intent intent = new Intent(this, FlagBaseActivity.class);
