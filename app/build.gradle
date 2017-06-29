@@ -26,9 +26,9 @@ android {
                 GETUI_APP_SECRET: "Wz2CYfKwQsAuf3Idwilga8"]
 
       //个推 os库只选择支持arm平台 x86 及其他平台可以忽略
-        ndk {
+        /*ndk {
             abiFilters "armeabi"
-        }
+        }*/
     }
     signingConfigs {
         //0ead6353aea4a9a2c4f5876823936547  应用的签名
@@ -293,7 +293,7 @@ dependencies {
     // netty 新的一种网络连接 （基于Java的nio实现的网络框架）
     compile netty
     // 支持gif的一种三方库
-    compile gif
+    //compile gif
     // 支持个推
 //    compile gt
 //    compile gt_jar

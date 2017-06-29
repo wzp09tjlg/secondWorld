@@ -13,9 +13,9 @@
           android:layout_height="wrap_content"
           android:layout_centerHorizontal="true"
           android:text="load"/>
+<!--
 
-
-      <!-- 竟然是没有设置gif绘制的次数的 真是差评，尽然没有方法可以控制 -->
+      &lt;!&ndash; 竟然是没有设置gif绘制的次数的 真是差评，尽然没有方法可以控制 &ndash;&gt;
       <pl.droidsonroids.gif.GifImageView
           android:id="@+id/v_gif"
           android:layout_width="200dp"
@@ -39,6 +39,6 @@
           android:text="this is a gif text"
           android:gravity="center"
           android:layout_below="@+id/btn_gif"
-          />
+          />-->
   </RelativeLayout>
 </layout>

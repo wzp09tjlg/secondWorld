@@ -35,18 +35,18 @@ public class GifActivity extends BindingActivity<ActivityGifBinding,GifPresenter
         binding.btnLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count == 0){
-                    binding.vGif.setImageResource(R.drawable.gif_newuser_open);
-                }else
-                if(count == 1){
-                    binding.vGif.setImageResource(R.drawable.gif_newuser_success);
-                }else
-                if(count == 2){
-                    binding.vGif.setImageResource(R.drawable.gif_newuser_show);
-                }else
-                if(count == 3){
-                    binding.vGif.setImageResource(R.drawable.gif_newuser_close);
-                }
+//                if(count == 0){
+//                    binding.vGif.setImageResource(R.drawable.gif_newuser_open);
+//                }else
+//                if(count == 1){
+//                    binding.vGif.setImageResource(R.drawable.gif_newuser_success);
+//                }else
+//                if(count == 2){
+//                    binding.vGif.setImageResource(R.drawable.gif_newuser_show);
+//                }else
+//                if(count == 3){
+//                    binding.vGif.setImageResource(R.drawable.gif_newuser_close);
+//                }
 
                 count = (count + 1) % 4;
             }

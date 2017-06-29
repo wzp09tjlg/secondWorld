@@ -180,6 +180,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.muchItem.MuchItemActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.single.SingleActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

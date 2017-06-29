@@ -5,6 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.StrikethroughSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +19,6 @@ import com.example.wuzp.secondworld.utils.UUID;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
-import com.example.wuzp.secondworld.view.muchItem.MuchItemActivity;
 import com.example.wuzp.secondworld.view.widget.MsgShow.MsgView;
 import com.example.wuzp.secondworld.view.widget.ToastMsg;
 import com.example.wuzp.secondworld.view.widget.floatingactionbutton.FloatingActionButton;
@@ -85,7 +87,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        textHello.setText("hello");
+        //设置中划线
+        String content = "50.00";
+        int start = 0;
+        int end = content.length();
+        SpannableStringBuilder ssb = new SpannableStringBuilder(content);
+        ssb.setSpan(new StrikethroughSpan(), start, end, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        textHello.setText(ssb);
+
         btnGet.setOnClickListener(this);
         btnPost.setOnClickListener(this);
         btnTrace.setOnClickListener(this);
@@ -142,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, FlagBaseActivity.class);
         //ActivityUtil.jumpActivity(this, HandlerActivity.class);
         //ActivityUtil.jumpActivity(this, DbActivity.class);
-        ActivityUtil.jumpActivity(this, MuchItemActivity.class);
+        //ActivityUtil.jumpActivity(this, MuchItemActivity.class);
+        //ActivityUtil.jumpActivity(this, SingleActivity.class);
 
 
         //Intent intent = new Intent(this, FlagBaseActivity.class);
