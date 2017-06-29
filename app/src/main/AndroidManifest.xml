@@ -183,6 +183,10 @@
         <activity android:name=".view.single.SingleActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleInstance"/>
+        <activity android:name=".view.VarDb.DbActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.VarDb.ormlite.OrmLiteActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

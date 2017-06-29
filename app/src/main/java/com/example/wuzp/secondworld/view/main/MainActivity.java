@@ -16,6 +16,7 @@ import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
+import com.example.wuzp.secondworld.view.VarDb.DbActivity;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
@@ -153,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, DbActivity.class);
         //ActivityUtil.jumpActivity(this, MuchItemActivity.class);
         //ActivityUtil.jumpActivity(this, SingleActivity.class);
+        ActivityUtil.jumpActivity(this, DbActivity.class);
 
 
         //Intent intent = new Intent(this, FlagBaseActivity.class);

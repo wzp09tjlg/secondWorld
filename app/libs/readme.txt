@@ -24,3 +24,7 @@ jar的加入及使用用途说明
    三方提供的循环查询自定文件夹中的特定文件 
    commons-io-2.2.jar
  
+2.2017.6.29
+  添加ormlite数据库包 
+  ormlite-android-5.0.jar
+  ormlite-core-5.0.jar

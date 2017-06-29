@@ -306,6 +306,10 @@ dependencies {
 //    compile slider
 
     compile 'com.r0adkll:slidableactivity:2.0.3'
+
+    //各个三方的数据库
+    compile ormlite_android
+    compile ormlite_core
 }
 repositories {
     mavenCentral()

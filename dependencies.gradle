@@ -48,6 +48,8 @@ ext {
     h_sdk = project(':hlibrary');
     s_sdk = project(':slibrary');
     u_meng = files('libs/umeng-analytics-v6.1.0.jar')
+    ormlite_android = files('libs/ormlite-android-5.0.jar')
+    ormlite_core    = files('libs/ormlite-core-5.0.jar')
     // kotlin
     kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     kotlin8 = "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}";
