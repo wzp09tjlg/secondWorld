@@ -18,7 +18,7 @@ public class OrmLiteHelper extends OrmLiteSqliteOpenHelper {
     private static final int VERSION = 2; //数据库版本
     private static OrmLiteHelper liteHelper;
 
-    //表对象
+    //表对象 前边的是表名 后边的不知道是什么参数  反正通过helper 得到的就是数据库中这张表的数据
     private Dao<User, Integer> userDao;
 
     public OrmLiteHelper(Context context) {

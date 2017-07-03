@@ -68,6 +68,9 @@ ext {
     //slider
     slider = "com.komi.slider:slider:0.4.0"
 
+    //三方数据库
+    greenDao = "org.greenrobot:greendao:3.2.2"
+
     // google
     support_dependencies = [design            : "com.android.support:design:${supportLibrary}",
                             recyclerView      : "com.android.support:recyclerview-v7:${supportLibrary}",

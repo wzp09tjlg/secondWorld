@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion HsCompileSdkVersion
@@ -84,6 +85,14 @@ android {
     //打开DataBinding的开关
     dataBinding {
         enabled true
+    }
+
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 1
+        targetGenDir 'src/main/java'    //生成DaoMaster类文件夹
+        daoPackage   'com.example.wuzp.secondworld.view.VarDb.greenDao.auto'  //生成DaoMaster类包名
     }
 
     lintOptions {
@@ -223,8 +232,11 @@ android {
 //          a360_p{//添加一个渠道 用于查看忽略文件中的效果
 //              manifestPlaceholders = [CHANNEL_NAME: "401"]
 //          }
-          yingyongbao_p{//添加一个渠道 用于查看忽略文件中的效果
-              manifestPlaceholders = [CHANNEL_NAME: "401"]
+//          yingyongbao_p{//添加一个渠道 用于查看忽略文件中的效果
+//              manifestPlaceholders = [CHANNEL_NAME: "401"]
+//          }
+          jia{
+              manifestPlaceholders = [CHANNEL_NAME: "1001"]
           }
     }
 
@@ -310,6 +322,8 @@ dependencies {
     //各个三方的数据库
     compile ormlite_android
     compile ormlite_core
+
+    compile greenDao
 }
 repositories {
     mavenCentral()

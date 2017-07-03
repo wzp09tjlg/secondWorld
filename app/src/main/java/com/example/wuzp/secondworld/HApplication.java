@@ -5,12 +5,15 @@ import android.app.Application;
 import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
 import com.example.wuzp.secondworld.network.parse.User;
 import com.example.wuzp.secondworld.utils.crashUtils.CrashHandler;
+import com.example.wuzp.secondworld.view.VarDb.greenDao.auto.DaoMaster;////自动生成的这两个文件
+import com.example.wuzp.secondworld.view.VarDb.greenDao.auto.DaoSession;
 import com.example.wuzp.secondworld.view.gt.GtActivity;
 import com.squareup.leakcanary.LeakCanary;
 
@@ -25,6 +28,9 @@ public class HApplication extends Application {
     public static GtActivity gtActivity;
     /**应用未启动, 个推 service已经被唤醒,保存在该时间段内离线消息(此时 GetuiSdkDemoActivity.tLogView == null)*/
     public static StringBuilder payloadData = new StringBuilder();
+
+    //GreenDao 自动生成的数据
+    public static DaoSession daoSession;
 
     @Override
     public void onCreate() {
@@ -42,6 +48,16 @@ public class HApplication extends Application {
         }
         //CrashHandler  注册应用的处理异常 (需要些本地的权限)
         Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(gContext));
+
+        initGreenDao();
+    }
+
+    //初始化GreenDao的基本操作
+    private void initGreenDao(){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "GreenDao.db", null);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(db);
+        daoSession = daoMaster.newSession();
     }
 
     /**

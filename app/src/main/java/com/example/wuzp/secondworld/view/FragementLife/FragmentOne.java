@@ -1,7 +1,9 @@
 package com.example.wuzp.secondworld.view.FragementLife;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +42,11 @@ public class FragmentOne extends BaseFragment{
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //获取手机的状态 如果没有动态申请 会不会崩溃？ 经过测试 没有崩溃，
+                TelephonyManager manager = (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
+                String subscriber = "N/A";
+                subscriber = manager.getSubscriberId();
+                String operatorName = manager.getSimOperatorName();
                 ListenerManager.doChange();
             }
         });

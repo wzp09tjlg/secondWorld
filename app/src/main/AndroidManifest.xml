@@ -189,6 +189,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.FragementLife.FragmentLifeActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.VarDb.greenDao.GreenDaoActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

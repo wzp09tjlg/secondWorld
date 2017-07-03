@@ -48,7 +48,7 @@ public class FragmentLifeActivity extends AppCompatActivity {
 
         adapter = new VAdapter(getSupportFragmentManager(),mData);
         viewPager.setAdapter(adapter);
-        //viewPager.setOffscreenPageLimit(4);
+        viewPager.setOffscreenPageLimit(4);
     }
 
     private List<Fragment> getData(){
