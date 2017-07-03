@@ -77,7 +77,7 @@ public class OrmLiteActivity extends AppCompatActivity implements View.OnClickLi
             helper.getUserDao().create(user);
             int temp = 0;
             for (int i = 0; i < 1000; i++) {
-                temp = (random.nextInt() % 11 + 11 ) % 11;
+                temp = (random.nextInt() % 10 +  10) % 10;
                 user = new User(names[temp], temp);
                 helper.getUserDao().create(user);
             }
@@ -139,8 +139,7 @@ public class OrmLiteActivity extends AppCompatActivity implements View.OnClickLi
         try {
             helper.getUserDao().deleteIds(deletePosition);
         }catch (Exception e){}
-
-        doSelect();
+        show();
 
         //删除的动作 6中方式
         //helper.getUserDao().delete(Collection<User>)
@@ -175,8 +174,7 @@ public class OrmLiteActivity extends AppCompatActivity implements View.OnClickLi
                 helper.getUserDao().updateId(users[i],updatePosition[i]);
             }
         }catch (Exception e){}
-
-        doSelect();
+        show();
 
         //更新数据的 5 种方式
         //helper.getUserDao().update(PreparedQuery<User>)
@@ -218,5 +216,13 @@ public class OrmLiteActivity extends AppCompatActivity implements View.OnClickLi
             if(user != null)
             Log.i("wzp", user.toString());
         }
+    }
+
+    private void show(){
+        OrmLiteHelper helper = OrmLiteHelper.getInstance(this);
+        try{
+            List<User> list = helper.getUserDao().queryForAll();
+            showUser(list);
+        }catch (Exception e){}
     }
 }

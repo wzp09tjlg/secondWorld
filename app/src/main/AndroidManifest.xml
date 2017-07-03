@@ -187,6 +187,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.VarDb.ormlite.OrmLiteActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.FragementLife.FragmentLifeActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
