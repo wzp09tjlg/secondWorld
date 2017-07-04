@@ -10,18 +10,23 @@ import org.greenrobot.greendao.annotation.Generated;
  */
 @Entity
 public class ReaderBean {
+    public static final int TYPE_STUDENT = 0X01;
+    public static final int TYPE_TEACHER = 0X02;
+
     @Id(autoincrement = true)
     private Long id;
     private String name;
     private int age;
     private String address;
+    private int type;
 
-    @Generated(hash = 1043317294)
-    public ReaderBean(Long id, String name, int age, String address) {
+    @Generated(hash = 1422838430)
+    public ReaderBean(Long id, String name, int age, String address, int type) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.address = address;
+        this.type = type;
     }
 
     @Generated(hash = 1365287976)
@@ -63,5 +68,13 @@ public class ReaderBean {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

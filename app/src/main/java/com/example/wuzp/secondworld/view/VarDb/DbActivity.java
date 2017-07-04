@@ -19,6 +19,8 @@ import com.example.wuzp.secondworld.view.VarDb.ormlite.OrmLiteActivity;
  * ActiveAndroid
  * sqlbrite
  * realm
+ *
+ * SugarORM、Active Android、Realm  晚上再写其他
  */
 public class DbActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,6 +1,7 @@
 package com.example.wuzp.secondworld.view.VarDb.greenDao;
 
 import com.example.wuzp.secondworld.HApplication;
+import com.example.wuzp.secondworld.view.VarDb.greenDao.auto.ReaderBeanDao;
 
 import java.util.List;
 
@@ -13,7 +14,8 @@ public class GreenDaoHelper {
 
     public static List<ReaderBean> queryOpt(){
         List<ReaderBean> data = null;
-        data = HApplication.daoSession.getReaderBeanDao().queryRaw("_id>0","");//.queryBuilder().build();
+        data = HApplication.daoSession.getReaderBeanDao().queryBuilder().where(ReaderBeanDao.Properties.Type.eq(ReaderBean.TYPE_STUDENT)).list();
+                //.queryRaw("where _id > 0","name,age,address");//.queryBuilder().build();
                 //.queryRawCreateListArgs(where,Collections<ReaderBean>)//
                 //.queryRawCreate(where,Object ... )
                 //.queryRaw(where,String ... selectionArg)//

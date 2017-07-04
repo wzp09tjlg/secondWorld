@@ -12,15 +12,16 @@ import android.os.Message;
 
 import com.example.wuzp.secondworld.network.parse.User;
 import com.example.wuzp.secondworld.utils.crashUtils.CrashHandler;
-import com.example.wuzp.secondworld.view.VarDb.greenDao.auto.DaoMaster;////自动生成的这两个文件
+import com.example.wuzp.secondworld.view.VarDb.greenDao.auto.DaoMaster;
 import com.example.wuzp.secondworld.view.VarDb.greenDao.auto.DaoSession;
 import com.example.wuzp.secondworld.view.gt.GtActivity;
+import com.orm.SugarContext;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by wuzp on 2017/3/18.
  */
-public class HApplication extends Application {
+public class HApplication extends Application { //SugarApp  也是继承了Application的context 只是在oncreate方法中 和 onterinate方法中对 sugar做了操作
     public static Context gContext;
     public static User gUser = new User();
     /** 个推接受离线的推送 */
@@ -39,6 +40,12 @@ public class HApplication extends Application {
         initGlobalVar();
     }
 
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        terminateGlobalVar();
+    }
+
     private void initGlobalVar(){
         //检测内存泄漏的工具
         initLeakCanary();
@@ -49,7 +56,11 @@ public class HApplication extends Application {
         //CrashHandler  注册应用的处理异常 (需要些本地的权限)
         Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(gContext));
 
+        //初始化GreenDao
         initGreenDao();
+
+        //初始化Sugar
+        initSugarDb();
     }
 
     //初始化GreenDao的基本操作
@@ -59,6 +70,16 @@ public class HApplication extends Application {
         DaoMaster daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
     }
+
+    /** 初始化Sugar 数据库*/
+    private void initSugarDb(){
+        SugarContext.init(this);
+    }
+
+    private void terminateGlobalVar(){
+        SugarContext.terminate();
+    }
+
 
     /**
      * 在debug版本下使用LeakCanary检测内存泄漏

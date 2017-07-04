@@ -28,6 +28,7 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
         public final static Property Age = new Property(2, int.class, "age", false, "AGE");
         public final static Property Address = new Property(3, String.class, "address", false, "ADDRESS");
+        public final static Property Type = new Property(4, int.class, "type", false, "TYPE");
     }
 
 
@@ -46,7 +47,8 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"NAME\" TEXT," + // 1: name
                 "\"AGE\" INTEGER NOT NULL ," + // 2: age
-                "\"ADDRESS\" TEXT);"); // 3: address
+                "\"ADDRESS\" TEXT," + // 3: address
+                "\"TYPE\" INTEGER NOT NULL );"); // 4: type
     }
 
     /** Drops the underlying database table. */
@@ -74,6 +76,7 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
         if (address != null) {
             stmt.bindString(4, address);
         }
+        stmt.bindLong(5, entity.getType());
     }
 
     @Override
@@ -95,6 +98,7 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
         if (address != null) {
             stmt.bindString(4, address);
         }
+        stmt.bindLong(5, entity.getType());
     }
 
     @Override
@@ -108,7 +112,8 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // name
             cursor.getInt(offset + 2), // age
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // address
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // address
+            cursor.getInt(offset + 4) // type
         );
         return entity;
     }
@@ -119,6 +124,7 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
         entity.setName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setAge(cursor.getInt(offset + 2));
         entity.setAddress(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setType(cursor.getInt(offset + 4));
      }
     
     @Override

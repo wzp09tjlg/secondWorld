@@ -191,6 +191,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.VarDb.greenDao.GreenDaoActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.VarDb.sugar.SugarActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"
@@ -344,5 +346,15 @@
         <meta-data
             android:name="PUSH_APPSECRET"
             android:value="${GETUI_APP_SECRET}"/>
+
+        <!-- Sugar 数据库的配置参数 -->
+        <!-- 数据库名字 -->
+        <meta-data android:name="DATABASE" android:value="Family.db"/>
+        <!-- 数据库的版本 -->
+        <meta-data android:name="VERSION" android:value="1"/>
+        <!-- 数据库允许记录日志 -->
+        <meta-data android:name="QUERY_LOG" android:value="true"/>
+        <!-- bean对应的目录 创建表结构 只是针对这个文件夹下的 bean 创建对应的表 在这个文件夹中的其他的非bean 不会创建相应的表 -->
+        <meta-data android:name="DOMAIN_PACKAGE_NAME"  android:value="com.example.wuzp.secondworld.view.VarDb.sugar"/>
     </application>
 </manifest>

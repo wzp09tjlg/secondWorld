@@ -70,6 +70,7 @@ ext {
 
     //三方数据库
     greenDao = "org.greenrobot:greendao:3.2.2"
+    sugar    = "com.github.satyan:sugar:1.5"
 
     // google
     support_dependencies = [design            : "com.android.support:design:${supportLibrary}",
