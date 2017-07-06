@@ -16,7 +16,7 @@ import com.example.wuzp.secondworld.R;
 import com.example.wuzp.secondworld.stats.EventFinal;
 import com.example.wuzp.secondworld.utils.ActivityUtil;
 import com.example.wuzp.secondworld.utils.UUID;
-import com.example.wuzp.secondworld.view.VarDb.sugar.SugarActivity;
+import com.example.wuzp.secondworld.view.VarDb.realm.RealmActivity;
 import com.example.wuzp.secondworld.view.cursorloader.CursorloaderActivity;
 import com.example.wuzp.secondworld.view.huasheng.recyclerView.RecyclerActivity;
 import com.example.wuzp.secondworld.view.loader.LoaderActivity;
@@ -157,7 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ActivityUtil.jumpActivity(this, DbActivity.class);
         //ActivityUtil.jumpActivity(this, FragmentLifeActivity.class);
         //ActivityUtil.jumpActivity(this, GreenDaoActivity.class);
-        ActivityUtil.jumpActivity(this, SugarActivity.class);
+        //ActivityUtil.jumpActivity(this, SugarActivity.class);
+        //ActivityUtil.jumpActivity(this, LiteOrmActivity.class);
+        ActivityUtil.jumpActivity(this, RealmActivity.class);
 
 
         //Intent intent = new Intent(this, FlagBaseActivity.class);

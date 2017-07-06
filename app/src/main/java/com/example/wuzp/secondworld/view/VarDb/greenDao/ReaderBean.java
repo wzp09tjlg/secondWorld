@@ -19,14 +19,17 @@ public class ReaderBean {
     private int age;
     private String address;
     private int type;
+    private String tempVar;
 
-    @Generated(hash = 1422838430)
-    public ReaderBean(Long id, String name, int age, String address, int type) {
+    @Generated(hash = 2099511699)
+    public ReaderBean(Long id, String name, int age, String address, int type,
+            String tempVar) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.address = address;
         this.type = type;
+        this.tempVar = tempVar;
     }
 
     @Generated(hash = 1365287976)
@@ -76,5 +79,13 @@ public class ReaderBean {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public String getTempVar() {
+        return this.tempVar;
+    }
+
+    public void setTempVar(String tempVar) {
+        this.tempVar = tempVar;
     }
 }

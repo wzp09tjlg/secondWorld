@@ -61,6 +61,9 @@ public class HApplication extends Application { //SugarApp  也是继承了Appli
 
         //初始化Sugar
         initSugarDb();
+
+        //初始化Realm
+        initRealm();
     }
 
     //初始化GreenDao的基本操作
@@ -74,6 +77,15 @@ public class HApplication extends Application { //SugarApp  也是继承了Appli
     /** 初始化Sugar 数据库*/
     private void initSugarDb(){
         SugarContext.init(this);
+    }
+
+    /*** 初始化Realm的操作 */
+    private final String REALM_DB_NAME = "RealmDb.realm"; //数据库的名字 其实也是一种文件而已，虽然和sqlite 保存的文件后缀名不一致，但最终还是文件 ，区别关键是针对文件中的操作 是如何实现的
+    private void initRealm(){
+        /*// The Realm file will be located in package's "files" directory.
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).name(REALM_DB_NAME).build();
+
+        Realm.setDefaultConfiguration(realmConfig);*/
     }
 
     private void terminateGlobalVar(){

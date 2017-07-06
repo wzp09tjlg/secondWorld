@@ -29,6 +29,7 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
         public final static Property Age = new Property(2, int.class, "age", false, "AGE");
         public final static Property Address = new Property(3, String.class, "address", false, "ADDRESS");
         public final static Property Type = new Property(4, int.class, "type", false, "TYPE");
+        public final static Property TempVar = new Property(5, String.class, "tempVar", false, "TEMP_VAR");
     }
 
 
@@ -48,7 +49,8 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
                 "\"NAME\" TEXT," + // 1: name
                 "\"AGE\" INTEGER NOT NULL ," + // 2: age
                 "\"ADDRESS\" TEXT," + // 3: address
-                "\"TYPE\" INTEGER NOT NULL );"); // 4: type
+                "\"TYPE\" INTEGER NOT NULL ," + // 4: type
+                "\"TEMP_VAR\" TEXT);"); // 5: tempVar
     }
 
     /** Drops the underlying database table. */
@@ -77,6 +79,11 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
             stmt.bindString(4, address);
         }
         stmt.bindLong(5, entity.getType());
+ 
+        String tempVar = entity.getTempVar();
+        if (tempVar != null) {
+            stmt.bindString(6, tempVar);
+        }
     }
 
     @Override
@@ -99,6 +106,11 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
             stmt.bindString(4, address);
         }
         stmt.bindLong(5, entity.getType());
+ 
+        String tempVar = entity.getTempVar();
+        if (tempVar != null) {
+            stmt.bindString(6, tempVar);
+        }
     }
 
     @Override
@@ -113,7 +125,8 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // name
             cursor.getInt(offset + 2), // age
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // address
-            cursor.getInt(offset + 4) // type
+            cursor.getInt(offset + 4), // type
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // tempVar
         );
         return entity;
     }
@@ -125,6 +138,7 @@ public class ReaderBeanDao extends AbstractDao<ReaderBean, Long> {
         entity.setAge(cursor.getInt(offset + 2));
         entity.setAddress(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setType(cursor.getInt(offset + 4));
+        entity.setTempVar(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     @Override

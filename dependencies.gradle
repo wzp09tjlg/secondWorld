@@ -48,8 +48,7 @@ ext {
     h_sdk = project(':hlibrary');
     s_sdk = project(':slibrary');
     u_meng = files('libs/umeng-analytics-v6.1.0.jar')
-    ormlite_android = files('libs/ormlite-android-5.0.jar')
-    ormlite_core    = files('libs/ormlite-core-5.0.jar')
+
     // kotlin
     kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     kotlin8 = "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}";
@@ -69,8 +68,14 @@ ext {
     slider = "com.komi.slider:slider:0.4.0"
 
     //三方数据库
+    //ormlite_android = files('libs/ormlite-android-5.0.jar')
+    //ormlite_core    = files('libs/ormlite-core-5.0.jar')
+    ormlite_android = "com.j256.ormlite:ormlite-android:4.48"
+    ormlite_core = "com.j256.ormlite:ormlite-core:4.48"
+
     greenDao = "org.greenrobot:greendao:3.2.2"
     sugar    = "com.github.satyan:sugar:1.5"
+    liteOrm  = files('libs/lite-orm-1.9.1.jar')
 
     // google
     support_dependencies = [design            : "com.android.support:design:${supportLibrary}",

@@ -28,3 +28,6 @@ jar的加入及使用用途说明
   添加ormlite数据库包 
   ormlite-android-5.0.jar
   ormlite-core-5.0.jar
+
+   添加liteorm数据库包    
+   lite-orm-1.9.1.jar

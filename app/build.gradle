@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.greenrobot.greendao'
+//apply plugin: 'realm-android'
 
 android {
     compileSdkVersion HsCompileSdkVersion
@@ -330,6 +331,8 @@ dependencies {
 
     compile greenDao
     compile sugar
+    compile liteOrm
+
 }
 repositories {
     mavenCentral()
