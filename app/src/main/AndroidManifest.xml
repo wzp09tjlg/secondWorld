@@ -197,6 +197,10 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.VarDb.realm.RealmActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.SelfView.viewWidgetAct.ViewCombatActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.SelfView.viewWidgetAct.CircleViewActivity"
+            android:screenOrientation="portrait"/>
         <!-- 个推 -->
         <activity
             android:name="com.igexin.sdk.PushActivity"

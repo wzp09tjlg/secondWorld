@@ -68,10 +68,10 @@ ext {
     slider = "com.komi.slider:slider:0.4.0"
 
     //三方数据库
-    //ormlite_android = files('libs/ormlite-android-5.0.jar')
-    //ormlite_core    = files('libs/ormlite-core-5.0.jar')
-    ormlite_android = "com.j256.ormlite:ormlite-android:4.48"
-    ormlite_core = "com.j256.ormlite:ormlite-core:4.48"
+    ormlite_android = files('libs/ormlite-android-5.0.jar')
+    ormlite_core    = files('libs/ormlite-core-5.0.jar')
+    //ormlite_android = "com.j256.ormlite:ormlite-android:4.48"
+    //ormlite_core = "com.j256.ormlite:ormlite-core:4.48"
 
     greenDao = "org.greenrobot:greendao:3.2.2"
     sugar    = "com.github.satyan:sugar:1.5"
